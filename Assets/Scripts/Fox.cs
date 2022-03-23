@@ -10,6 +10,8 @@ public class Fox : MonoBehaviour
 
     public GameObject runPoint;
 
+    public GameObject runPoint2;
+
     private double MinDist = 0.5;
 
     // Start is called before the first frame update
@@ -25,11 +27,15 @@ public class Fox : MonoBehaviour
         {
             transform.position += transform.right * runSpeed * Time.deltaTime;
         }
-        
     }
 
     public void SetSpawner(Spawner spawner)
     {
         foxSpawner = spawner;
+    }
+
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(5);
     }
 }
