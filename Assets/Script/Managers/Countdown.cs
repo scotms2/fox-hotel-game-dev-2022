@@ -20,6 +20,7 @@ public class Countdown : MonoBehaviour
     void Update()
     {
         decreaceNumber();
+        
     }
 
     private void decreaceNumber()
