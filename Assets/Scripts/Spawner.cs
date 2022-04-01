@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-
     public bool canSpawn = true;
 
     public GameObject foxPrefab;

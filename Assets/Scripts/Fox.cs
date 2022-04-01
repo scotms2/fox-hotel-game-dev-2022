@@ -23,10 +23,10 @@ public class Fox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, runPoint.transform.position) >= MinDist)
-        {
-            transform.position += transform.right * runSpeed * Time.deltaTime;
-        }
+        //if(foxSpawner.paused == false)
+        //{
+            moveFox();
+        //}
     }
 
     public void SetSpawner(Spawner spawner)
@@ -34,8 +34,25 @@ public class Fox : MonoBehaviour
         foxSpawner = spawner;
     }
 
-    IEnumerator wait()
+    public void moveFox()
     {
-        yield return new WaitForSeconds(5);
+        if (Vector3.Distance(transform.position, runPoint.transform.position) >= MinDist)
+        {
+            transform.position += transform.right * runSpeed * Time.deltaTime;
+        }
     }
+
+    private void OnTriggerEnter2D(Collider2D collider){
+        Debug.Log("Collided with reception");
+        //StartCoroutine(wait());
+    }
+
+    // IEnumerator wait()
+    // {
+    //     foxSpawner.paused = true;
+    //     Debug.Log("Waiting....");
+    //     yield return new WaitForSeconds(10);
+    //     foxSpawner.paused = false;
+    //     Debug.Log("Done Waiting!");
+    // }
 }
