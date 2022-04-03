@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class AddGold : MonoBehaviour
 {
-    public Text txt;
+    public TextMeshProUGUI txt;
     private int money;
 
     // Start is called before the first frame update
     void Start()
     {
-        txt = GameObject.Find("Canvas/Text").GetComponent<Text>();
+        //txt = GameObject.Find("Canvas/Text").GetComponent<TextMeshProUGUI>();
         money = 0;
     }
 
@@ -23,7 +24,7 @@ public class AddGold : MonoBehaviour
     }
 
     //1
-    void OnMouseUp()
+    public void IncreaseGold()
     {
         money += 50;
     }
