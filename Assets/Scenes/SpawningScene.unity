@@ -240,11 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a6a851f08943a41abf87142c96b6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paused: 0
   canSpawn: 1
-  foxPrefab: {fileID: 4059766610852074216, guid: 21ea6d9e6dae1a642a75951b41325621, type: 3}
-  foxSpawnPositions:
-  - {fileID: 61791801}
+  guestPrefab: {fileID: 4059766610852074216, guid: 21ea6d9e6dae1a642a75951b41325621, type: 3}
+  guestSpawnPositions: []
   timeBetweenSpawns: 20
 --- !u!4 &581839028
 Transform:

@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 419761159514082228}
-  - component: {fileID: -7476583643365248998}
   - component: {fileID: 8250870629087556789}
   - component: {fileID: -4937354795606361259}
   - component: {fileID: 8544861207296845998}
+  - component: {fileID: 7210537925246785032}
   m_Layer: 0
-  m_Name: Fox
+  m_Name: Guest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,21 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7476583643365248998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4059766610852074216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 774bc05dc99421545924bb7c11198c60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runSpeed: 1
-  runPoint: {fileID: 2448684075634344235, guid: 3860b56ae34d36e46a22e39d3caf814a, type: 3}
-  runPoint2: {fileID: 4162993894093660988, guid: 8a574bf3d8e9971459c3921c7baed91d, type: 3}
 --- !u!212 &8250870629087556789
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -147,3 +132,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7210537925246785032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4059766610852074216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 774bc05dc99421545924bb7c11198c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeed: 2
+  runPoint: {fileID: 2448684075634344235, guid: 3860b56ae34d36e46a22e39d3caf814a, type: 3}
+  runPoint2: {fileID: 4162993894093660988, guid: 8a574bf3d8e9971459c3921c7baed91d, type: 3}

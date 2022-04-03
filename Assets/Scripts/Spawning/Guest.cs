@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fox : MonoBehaviour
+public class Guest : MonoBehaviour
 {
-    private Spawner foxSpawner;
+    private Spawner guestSpawner;
 
     public float runSpeed;
 
@@ -23,18 +23,15 @@ public class Fox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(foxSpawner.paused == false)
-        //{
-            moveFox();
-        //}
+        moveGuest();
     }
 
     public void SetSpawner(Spawner spawner)
     {
-        foxSpawner = spawner;
+        guestSpawner = spawner;
     }
 
-    public void moveFox()
+    public void moveGuest()
     {
         if (Vector3.Distance(transform.position, runPoint.transform.position) >= MinDist)
         {
@@ -44,15 +41,5 @@ public class Fox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider){
         Debug.Log("Collided with reception");
-        //StartCoroutine(wait());
     }
-
-    // IEnumerator wait()
-    // {
-    //     foxSpawner.paused = true;
-    //     Debug.Log("Waiting....");
-    //     yield return new WaitForSeconds(10);
-    //     foxSpawner.paused = false;
-    //     Debug.Log("Done Waiting!");
-    // }
 }
