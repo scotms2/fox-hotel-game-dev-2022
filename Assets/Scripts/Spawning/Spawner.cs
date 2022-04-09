@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
     }
 
     private void SpawnGuest() {
-        Vector2 randomPosition = guestSpawnPositions[Random.Range(0, guestSpawnPositions.Count)].position;
+        Vector3 randomPosition = guestSpawnPositions[Random.Range(0, guestSpawnPositions.Count)].position;
 
         GameObject guest = Instantiate(guestPrefab, randomPosition, guestPrefab.transform.rotation);
 

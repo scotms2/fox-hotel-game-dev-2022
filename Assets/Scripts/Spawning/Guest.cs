@@ -35,7 +35,7 @@ public class Guest : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, runPoint.transform.position) >= MinDist)
         {
-            transform.position += transform.right * runSpeed * Time.deltaTime;
+            transform.position += transform.forward * runSpeed * Time.deltaTime;
         }
     }
 
