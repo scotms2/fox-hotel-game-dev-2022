@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8907237370623395187}
   - component: {fileID: -6534397833297011995}
   m_Layer: 0
-  m_Name: Destination Point
+  m_Name: (OLD)Destination Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

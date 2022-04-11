@@ -146,8 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 1
-  runPoint: {fileID: 2448684075634344235, guid: 3860b56ae34d36e46a22e39d3caf814a, type: 3}
-  runPoint2: {fileID: 4162993894093660988, guid: 8a574bf3d8e9971459c3921c7baed91d, type: 3}
+  runPoint: {fileID: 5279885412646250941, guid: 834d3d7f1eed8fe4cbb48ad1b4f73e7d, type: 3}
 --- !u!114 &8841705634131776723
 MonoBehaviour:
   m_ObjectHideFlags: 0
