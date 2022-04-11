@@ -10,8 +10,6 @@ public class Guest : MonoBehaviour
 
     public GameObject runPoint;
 
-    public GameObject runPoint2;
-
     private double MinDist = 0.5;
 
     // Start is called before the first frame update
@@ -33,9 +31,9 @@ public class Guest : MonoBehaviour
 
     public void moveGuest()
     {
-        if (Vector3.Distance(transform.position, runPoint.transform.position) >= MinDist)
+        if (Vector3.Distance(this.transform.position, runPoint.transform.position) >= MinDist)
         {
-            transform.position += transform.forward * runSpeed * Time.deltaTime;
+            transform.position += transform.right * runSpeed * Time.deltaTime;
         }
     }
 
