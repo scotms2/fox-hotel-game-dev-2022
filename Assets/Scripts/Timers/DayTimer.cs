@@ -6,19 +6,13 @@ using TMPro;
 
 public class DayTimer : MonoBehaviour
 {
-    public float timeRemaining;
-
+  public float timeRemaining;
     public TextMeshProUGUI dayTimerText;    //Textmesh pro day timer ref
-
     public TextMeshProUGUI dayOrNightText;    //Textmesh pro day or night ref
-
     public GameObject endDayButton;
-
     public bool timerIsRunning = false;
-
     public bool day = false;
     public bool night = false;
-
     private bool oneTime = false;
 
     void Start()
@@ -82,5 +76,16 @@ public class DayTimer : MonoBehaviour
     {
         GameObject newButton = Instantiate(endDayButton) as GameObject;
         newButton.transform.SetParent(this.transform, false);
+    }
+
+    public void Reset()
+    {
+        //reset the day timer
+        timeRemaining = 10;
+        day = true;
+        timerIsRunning = true;
+        night = false;
+        oneTime=false;
+        Debug.Log("Next Day");
     }
 }
