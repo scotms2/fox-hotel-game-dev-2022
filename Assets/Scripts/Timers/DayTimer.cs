@@ -15,16 +15,43 @@ public class DayTimer : MonoBehaviour
     public bool night = false;
     private bool oneTime = false;
 
+    public Spawner spawner;
     void Start()
     {
         timerIsRunning = true;  //set timerIsRunning to true
         day = true; //Make it day time when game is started
     }
 
+
+    public GameObject miniGame;
+
+    public void LoadGame() {
+        miniGame.SetActive(true);
+        timerIsRunning = false;
+
+    }
+
+    public bool isCanSpawnGuest = false;
+    public void StartGame()
+    {
+        Destroy(spawner.guestGame);
+           isCanSpawnGuest = true;
+        miniGame.SetActive(false);
+        timerIsRunning = true;
+       
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(timerIsRunning && day)  //if true
+
+        if (day&& isCanSpawnGuest)
+        {
+            isCanSpawnGuest = false;
+            spawner.SpawnGuest();
+        }
+
+        if (timerIsRunning && day)  //if true
         {
             if(timeRemaining > 0)   //if timer is greater than 0
             {
@@ -74,8 +101,9 @@ public class DayTimer : MonoBehaviour
 
     private void GenerateEndDayButton()
     {
-        GameObject newButton = Instantiate(endDayButton) as GameObject;
-        newButton.transform.SetParent(this.transform, false);
+        endDayButton.SetActive(true);
+        //GameObject newButton = Instantiate(endDayButton) as GameObject;
+        //newButton.transform.SetParent(this.transform, false);
     }
 
     public void Reset()
