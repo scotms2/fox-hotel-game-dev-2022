@@ -17,12 +17,11 @@ public class CameraScript : MonoBehaviour
 
     public TextMeshProUGUI txt;
 
+    public Vector3 currentRoomPos;
+
     // Update is called once per frame
     void Update()
     {
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hitInfo;
-
         float ScrollWheel = Input.GetAxis("Mouse ScrollWheel");
 
         if (ScrollWheel < 0)
@@ -33,6 +32,8 @@ public class CameraScript : MonoBehaviour
         else if (ScrollWheel > 0)
         {
             Camera.main.orthographic = false;
+            currentRoomPos.z = Camera.main.transform.position.z;
+            Camera.main.transform.position = currentRoomPos;
             ZoomOut = false;
         }
 
@@ -75,15 +76,6 @@ public class CameraScript : MonoBehaviour
                 Vector3 pos = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Camera.main.transform.position += pos;
             }
-        }
-
-        if(Physics.Raycast (ray, out hitInfo))
-        {
-            Debug.Log(hitInfo.transform.tag);
-            Debug.DrawLine(ray.origin, hitInfo.point, Color.red);
-        }
-        else {
-            Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.green);
         }
     }
 }
