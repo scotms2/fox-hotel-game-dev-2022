@@ -4,8 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Diner
-  - Reception
+  - Yes
   layers:
   - Default
   - TransparentFX
