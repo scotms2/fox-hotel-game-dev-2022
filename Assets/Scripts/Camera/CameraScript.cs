@@ -15,7 +15,7 @@ public class CameraScript : MonoBehaviour
 
     private bool ZoomOut;
 
-    public TextMeshProUGUI txt;
+    //public TextMeshProUGUI txt;
 
     public Vector3 currentRoomPos;
 
@@ -50,7 +50,7 @@ public class CameraScript : MonoBehaviour
 
             float difference = currentMagnitude - prevMagnitude;
 
-            txt.text = "Difference Value: " + difference.ToString();
+            //txt.text = "Difference Value: " + difference.ToString();
 
             if (difference < 0)
             {

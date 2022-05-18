@@ -8,10 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/PhoneBookScene.unity
+  - enabled: 0
+    path: Assets/Scenes/CameraTest(IGNORE).unity
     guid: 94c7ad9b58101704aae4989446e84d3c
   - enabled: 1
     path: Assets/Scenes/MiniGame.unity
     guid: e6f1cc460645e784ea31aa875cd63572
+  - enabled: 1
+    path: Assets/Scenes/Demo2.unity
+    guid: d854cc5ffd354b744b16652425421d29
   m_configObjects: {}

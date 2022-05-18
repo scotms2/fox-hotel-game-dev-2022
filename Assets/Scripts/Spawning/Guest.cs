@@ -10,7 +10,7 @@ public class Guest : MonoBehaviour
 
     public GameObject runPoint;
 
-    private double MinDist = 0.5;
+    private double MinDist = 0.01;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +22,6 @@ public class Guest : MonoBehaviour
     void Update()
     {
         moveGuest();
-
-       
     }
 
     public void SetSpawner(Spawner spawner)
@@ -35,7 +33,7 @@ public class Guest : MonoBehaviour
     {
         if (Vector3.Distance(this.transform.position, runPoint.transform.position) >= MinDist)
         {
-            transform.position += transform.right * runSpeed * Time.deltaTime;
+            transform.position -= transform.right * runSpeed * Time.deltaTime;
         }
         else {
             GetComponent<BoxCollider2D>().enabled = true;
