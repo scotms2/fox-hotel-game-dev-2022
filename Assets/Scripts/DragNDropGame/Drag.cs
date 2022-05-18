@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class Drag: MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Transform orignaParent;
 
