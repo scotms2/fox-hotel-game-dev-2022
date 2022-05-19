@@ -12,8 +12,8 @@ public class RaycastingScript : MonoBehaviour
 
         if(Physics.Raycast (ray, out hitInfo))
         {
-            //Debug.Log(hitInfo.transform.gameObject.GetComponent<Collider>().bounds.size);
-            //Debug.Log("position: " + hitInfo.transform.position);
+            Debug.Log(hitInfo.transform.gameObject.GetComponent<Collider>().bounds.size);
+            Debug.Log("position: " + hitInfo.transform.position);
             transform.root.GetComponent<CameraScript>().currentRoomPos = hitInfo.transform.position;
             Debug.DrawLine(ray.origin, hitInfo.point, Color.red);
         }
