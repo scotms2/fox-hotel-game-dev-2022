@@ -32,7 +32,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FoxPlayer
+  m_Name: MousePlayer
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -59,7 +59,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -5510108472335866073}
-    m_Position: {x: 200, y: 0, z: 0}
+    m_Position: {x: 240, y: 50, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

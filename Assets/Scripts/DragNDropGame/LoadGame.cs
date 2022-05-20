@@ -10,13 +10,11 @@ public class LoadGame : MonoBehaviour
 
     void OnMouseUp()
     {
-        GameObject.Find("DayTime").GetComponent<DayTimer>().LoadGame();
-
-    
+        //GameObject.Find("DayTime").GetComponent<DayTimer>().LoadGame();
     }
 
     public void back()
     {
-        GameObject.Find("DayTime").GetComponent<DayTimer>().StartGame();
+        //GameObject.Find("DayTime").GetComponent<DayTimer>().StartGame();
     }
 }
