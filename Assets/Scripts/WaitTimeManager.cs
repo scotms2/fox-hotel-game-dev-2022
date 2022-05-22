@@ -8,7 +8,7 @@ public class WaitTimeManager{
     static WaitTimeManager()
     {
         GameObject go = new GameObject("#WaitTimeManager#");
-        GameObject.DontDestroyOnLoad(go);
+        //GameObject.DontDestroyOnLoad(go);
         m_Task = go.AddComponent<TaskBehaviour>();
     }
 

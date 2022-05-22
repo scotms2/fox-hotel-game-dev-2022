@@ -6,6 +6,7 @@ using TMPro;
 
 public class DayTimer : MonoBehaviour
 {
+    public Gold Gold;
     public float timeRemaining;
     public TextMeshProUGUI dayTimerText;    //Textmesh pro day timer ref
     public TextMeshProUGUI dayOrNightText;    //Textmesh pro day or night ref
@@ -52,15 +53,15 @@ public class DayTimer : MonoBehaviour
 
         if (timerIsRunning && day)  //if true
         {
-            if(timeRemaining > 0)   //if timer is greater than 0
+            if(Gold.m_Time > 0)   //if timer is greater than 0
             {
-                timeRemaining -= Time.deltaTime;    //start counting down
-                DisplayTime(timeRemaining); //display timer on canvas (replacing text every second/frame)
+                Gold.m_Time -= Time.deltaTime;    //start counting down
+                DisplayTime(Gold.m_Time); //display timer on canvas (replacing text every second/frame)
             }
             else    //when timer has finished
             {
                 Debug.Log("Day time has ended");
-                timeRemaining = 0;  //set timer to 0 so it doesnt keep going down after reaching zero
+                Gold.m_Time = 0;  //set timer to 0 so it doesnt keep going down after reaching zero
                 dayTimerText.text = "Day Timer: 00:00";
                 timerIsRunning = false; //set timerIsRunning to false
                 day = false;
@@ -106,11 +107,13 @@ public class DayTimer : MonoBehaviour
     public void Reset()
     {
         //reset the day timer
-        timeRemaining = 10;
+        Gold.m_Time = 10;
         day = true;
         timerIsRunning = true;
         night = false;
         oneTime=false;
+        Gold.IsDisPlayer = false;
+        spawner.SpawnGuest();
         Debug.Log("Next Day");
     }
 }

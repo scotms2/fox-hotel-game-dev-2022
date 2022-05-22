@@ -9,6 +9,7 @@ public class AddGold : MonoBehaviour
 {
     public TextMeshProUGUI txt;
     private int money;
+    public Gold Gold;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +21,29 @@ public class AddGold : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        txt.text = "Gold: " + money.ToString();
+        //txt.text = "Gold: " + money.ToString();
+        txt.text = "Gold: " + Gold.score.ToString();
+
     }
 
     //1
     public void IncreaseGold()
     {
         Debug.Log("Calling from the Increase Gold Method");
-        money += 50;
+        Gold.score += 50;
+    }
+
+    public void ExitGame()
+    {
+        Gold.score = 0;
+        Gold.m_Time = 10;
+        Gold.IsDisPlayer = false;
+        //预处理
+#if UNITY_EDITOR  //在编辑器模式下
+
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+                            Application.Quit();
+#endif
     }
 }
