@@ -6,7 +6,7 @@ using TMPro;
 
 public class DayTimer : MonoBehaviour
 {
-  public float timeRemaining;
+    public float timeRemaining;
     public TextMeshProUGUI dayTimerText;    //Textmesh pro day timer ref
     public TextMeshProUGUI dayOrNightText;    //Textmesh pro day or night ref
     public GameObject endDayButton;
@@ -14,8 +14,9 @@ public class DayTimer : MonoBehaviour
     public bool day = false;
     public bool night = false;
     private bool oneTime = false;
-
+    public bool isCanSpawnGuest = false;
     public Spawner spawner;
+
     void Start()
     {
         timerIsRunning = true;  //set timerIsRunning to true
@@ -23,23 +24,23 @@ public class DayTimer : MonoBehaviour
     }
 
 
-    public GameObject miniGame;
+    // public GameObject miniGame;
 
-    public void LoadGame() {
-        miniGame.SetActive(true);
-        timerIsRunning = false;
+    // public void LoadGame() {
+    //     miniGame.SetActive(true);
+    //     timerIsRunning = false;
 
-    }
+    // }
 
-    public bool isCanSpawnGuest = false;
-    public void StartGame()
-    {
-        Destroy(spawner.guestGame);
-           isCanSpawnGuest = true;
-        miniGame.SetActive(false);
-        timerIsRunning = true;
+    
+    // public void StartGame()
+    // {
+    //     Destroy(spawner.guestGame);
+    //        isCanSpawnGuest = true;
+    //     miniGame.SetActive(false);
+    //     timerIsRunning = true;
        
-    }
+    // }
 
     // Update is called once per frame
     void Update()

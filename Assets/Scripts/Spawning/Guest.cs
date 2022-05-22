@@ -10,7 +10,11 @@ public class Guest : MonoBehaviour
 
     public GameObject runPoint;
 
-    private double MinDist = 0.01;
+    private double MinDist = 0.05;
+
+    public bool isMoving = true;
+
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +26,11 @@ public class Guest : MonoBehaviour
     void Update()
     {
         moveGuest();
+
+        if(isMoving == false)
+        {
+            animator.gameObject.GetComponent<Animator>().enabled = false;
+        }
     }
 
     public void SetSpawner(Spawner spawner)
@@ -37,10 +46,7 @@ public class Guest : MonoBehaviour
         }
         else {
             GetComponent<BoxCollider2D>().enabled = true;
+            isMoving = false;
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collider){
-        Debug.Log("Collided with reception");
     }
 }
