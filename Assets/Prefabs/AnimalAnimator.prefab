@@ -121,6 +121,7 @@ MonoBehaviour:
   runSpeed: 0.05
   runPoint: {fileID: 5279885412646250941, guid: 834d3d7f1eed8fe4cbb48ad1b4f73e7d, type: 3}
   isMoving: 1
+  animator: {fileID: 281048614033988335}
 --- !u!114 &8544636089446410457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeRemaining: 15
   timerIsRunning: 0
+  animator: {fileID: 281048614033988335}
 --- !u!114 &-3119653666670324021
 MonoBehaviour:
   m_ObjectHideFlags: 0
