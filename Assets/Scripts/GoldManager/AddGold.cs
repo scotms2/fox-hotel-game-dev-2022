@@ -26,6 +26,7 @@ public class AddGold : MonoBehaviour
     //1
     public void IncreaseGold()
     {
+        Debug.Log("Calling from the Increase Gold Method");
         money += 50;
     }
 }

@@ -24,23 +24,21 @@ public class DayTimer : MonoBehaviour
     }
 
 
-    // public GameObject miniGame;
+    public GameObject miniGame;
 
-    // public void LoadGame() {
-    //     miniGame.SetActive(true);
-    //     timerIsRunning = false;
-
-    // }
+    public void LoadGame() {
+        miniGame.SetActive(true);
+        timerIsRunning = false;
+    }
 
     
-    // public void StartGame()
-    // {
-    //     Destroy(spawner.guestGame);
-    //        isCanSpawnGuest = true;
-    //     miniGame.SetActive(false);
-    //     timerIsRunning = true;
-       
-    // }
+    public void StartGame()
+    {
+        Destroy(spawner.guestGame);
+        isCanSpawnGuest = true;
+        miniGame.SetActive(false);
+        timerIsRunning = true;
+    }
 
     // Update is called once per frame
     void Update()
@@ -103,8 +101,6 @@ public class DayTimer : MonoBehaviour
     private void GenerateEndDayButton()
     {
         endDayButton.SetActive(true);
-        //GameObject newButton = Instantiate(endDayButton) as GameObject;
-        //newButton.transform.SetParent(this.transform, false);
     }
 
     public void Reset()
