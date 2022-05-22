@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class LoadGame : MonoBehaviour
 {
-    [SerializeField] private string miniGameScene;
-    [SerializeField] private string mainDemoScene;
+    //[SerializeField] private string miniGameScene;
+    //[SerializeField] private string mainDemoScene;
 
     void OnMouseUp()
     {
-        //GameObject.Find("DayTime").GetComponent<DayTimer>().LoadGame();
+        GameObject.Find("DayTime").GetComponent<DayTimer>().LoadGame();
     }
 
     public void back()
     {
-        //GameObject.Find("DayTime").GetComponent<DayTimer>().StartGame();
+        GameObject.Find("DayTime").GetComponent<DayTimer>().StartGame();
     }
 }

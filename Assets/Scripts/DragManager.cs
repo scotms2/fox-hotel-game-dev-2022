@@ -17,12 +17,6 @@ public class DragManager : MonoBehaviour
     public int number=0;
 
     public GameObject dragGame;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void OnEnable()
     {
         number = 0;

@@ -35,6 +35,7 @@ public class PatienceTimer : MonoBehaviour
             {
                 timeRemaining = 0;
                 timerIsRunning = false;
+                Destroy(gameObject);
             }
         }
     }
