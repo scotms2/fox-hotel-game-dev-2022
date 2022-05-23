@@ -813,6 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1db956f71ed9b42b078c86bcd23b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Gold: {fileID: 11400000, guid: 6f6be7221271c55498d056d422f90f08, type: 2}
   boxs:
   - {fileID: 6013781226320381708, guid: a15dc33d027afe7468d1e938573e7176, type: 3}
   - {fileID: 7124767631486149744, guid: 0c44841b3bb175a43b2adc674501356c, type: 3}

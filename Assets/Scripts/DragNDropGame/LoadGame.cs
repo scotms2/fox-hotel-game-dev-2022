@@ -5,13 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LoadGame : MonoBehaviour
 {
-    //[SerializeField] private string miniGameScene;
+    public Gold Gold;
+    public string scenename;
     //[SerializeField] private string mainDemoScene;
 
-    void OnMouseUp()
-    {
-        GameObject.Find("DayTime").GetComponent<DayTimer>().LoadGame();
-    }
 
     public void back()
     {

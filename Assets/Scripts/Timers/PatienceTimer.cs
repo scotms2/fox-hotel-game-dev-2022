@@ -1,13 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PatienceTimer : MonoBehaviour
 {
     public float timeRemaining;
     public bool timerIsRunning = false;
-
+    public Gold gold;
     public Animator animator;
+    public string scenename;
+    void OnMouseUp()
+    {
+        if (animator.gameObject.GetComponent<Animator>().enabled == false)
+            //GameObject.Find("DayTime").GetComponent<DayTimer>().LoadGame();
+            SceneManager.LoadScene(scenename);
+    }
+
 
     void Start()
     {
@@ -26,14 +35,14 @@ public class PatienceTimer : MonoBehaviour
     {
         if(timerIsRunning)
         {
-            if(timeRemaining > 0)
+            if(gold.m_Time > 0)
             {
                 timeRemaining -= Time.deltaTime;
                 Debug.Log("Patience Timer:" + timeRemaining);
             }
             else
             {
-                timeRemaining = 0;
+                gold.m_Time = 0;
                 timerIsRunning = false;
                 Destroy(gameObject);
             }
