@@ -36,14 +36,14 @@ public class AddGold : MonoBehaviour
     public void ExitGame()
     {
         Gold.score = 0;
-        Gold.m_Time = 10;
+        Gold.m_Time = 60;
         Gold.IsDisPlayer = false;
-        //预处理
-#if UNITY_EDITOR  //在编辑器模式下
 
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-                            Application.Quit();
-#endif
+        #if UNITY_EDITOR 
+
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                                    Application.Quit();
+        #endif
     }
 }

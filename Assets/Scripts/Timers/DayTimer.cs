@@ -22,6 +22,7 @@ public class DayTimer : MonoBehaviour
     {
         timerIsRunning = true;  //set timerIsRunning to true
         day = true; //Make it day time when game is started
+        //Gold.m_Time = timeRemaining;
     }
 
 
@@ -107,7 +108,7 @@ public class DayTimer : MonoBehaviour
     public void Reset()
     {
         //reset the day timer
-        Gold.m_Time = 10;
+        Gold.m_Time = 60;
         day = true;
         timerIsRunning = true;
         night = false;

@@ -35,14 +35,14 @@ public class PatienceTimer : MonoBehaviour
     {
         if(timerIsRunning)
         {
-            if(gold.m_Time > 0)
+            if(timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
                 Debug.Log("Patience Timer:" + timeRemaining);
             }
             else
             {
-                gold.m_Time = 0;
+                timeRemaining = 0;
                 timerIsRunning = false;
                 Destroy(gameObject);
             }
