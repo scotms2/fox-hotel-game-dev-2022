@@ -35,8 +35,8 @@ public class AddGold : MonoBehaviour
 
     public void ExitGame()
     {
-        Gold.score = 0;
-        Gold.m_Time = 60;
+        //Gold.score = 0;
+        Gold.m_Time = 40;
         Gold.IsDisPlayer = false;
 
         #if UNITY_EDITOR 

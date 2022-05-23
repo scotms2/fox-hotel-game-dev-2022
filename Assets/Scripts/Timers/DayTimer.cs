@@ -108,7 +108,7 @@ public class DayTimer : MonoBehaviour
     public void Reset()
     {
         //reset the day timer
-        Gold.m_Time = 60;
+        Gold.m_Time = 40;
         day = true;
         timerIsRunning = true;
         night = false;

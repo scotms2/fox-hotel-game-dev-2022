@@ -3,7 +3,52 @@ guid: 779eaa818961b4b49a48d768412b7119
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ROOM reception
+    second: {fileID: 2100000, guid: 3271a94428f4681499b3b4ce58402e4e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SIGN diner
+    second: {fileID: 2100000, guid: ea6626474f2257644a670193c75e2aa6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SIGN old quarters
+    second: {fileID: 2100000, guid: ec907d16aff46cb4197792ba5ac9768d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: big doors
+    second: {fileID: 2100000, guid: 76b00778d5191f84c84535923396e00d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: big reception sign
+    second: {fileID: 2100000, guid: 8147f7b5286183f49b28858c08be45ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: door normal
+    second: {fileID: 2100000, guid: 7e12bc4cbcbeecf488d6a663acdda20c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: keys
+    second: {fileID: 2100000, guid: 6619172ee92317e41b780d9243cfa91e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: playing card table
+    second: {fileID: 2100000, guid: 082a8787146b83749ba997b5a2d4aaa7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: small nails
+    second: {fileID: 2100000, guid: 7b3337e640db07f43a3f8e314d5b532e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

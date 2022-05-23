@@ -76,6 +76,7 @@ public class CameraScript : MonoBehaviour
                 Vector3 pos = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Camera.main.transform.position += pos;
             }
+            
         }
     }
 }
