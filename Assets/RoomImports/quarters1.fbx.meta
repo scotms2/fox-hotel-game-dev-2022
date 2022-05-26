@@ -3,7 +3,37 @@ guid: b7f176afd47069f43b53b69c97d75e53
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ROOM old quarters
+    second: {fileID: 2100000, guid: c5d63c4994957b142b790f5207ce7212, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: door normal
+    second: {fileID: 2100000, guid: 8a57334b3e47536469e72ad676dbe79e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lego chair
+    second: {fileID: 2100000, guid: 06c58531888df4f4dbb9f91c8aaa7602, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: old quarters pins
+    second: {fileID: 2100000, guid: 46ae285b89a8f5a478f35e07c8dc94c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: postcard 1
+    second: {fileID: 2100000, guid: eeee19f02d1092847a213d09b1b98f7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tuna can fireplace
+    second: {fileID: 2100000, guid: ac4b734af1beb9248bd8c49fc02bec04, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
