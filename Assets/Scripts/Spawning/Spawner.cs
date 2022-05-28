@@ -22,27 +22,21 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //  StartCoroutine(SpawnRoutine());
-        
         SpawnGuest();
     }
 
     public void SpawnGuest()
     {
-        //GameObject obj = GameObject.FindGameObjectWithTag("Player");
-        //if (obj != null)
-            //Destroy(obj);
-
+        if(gameObject.activeSelf)
+        {
             Vector3 randomPosition = guestSpawnPositions[Random.Range(0, guestSpawnPositions.Count)].position;
-        //if (!Gold.IsDisPlayer)
-        //{
             GameObject guest = Instantiate(guestPrefab, randomPosition, guestPrefab.transform.rotation);
             guestList.Add(guest);
 
 
             guestGame = guest;
             guest.GetComponent<Guest>().SetSpawner(this);
-        //}
+        }
     }
 
     //private IEnumerator SpawnRoutine()
