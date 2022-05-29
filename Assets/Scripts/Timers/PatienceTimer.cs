@@ -6,21 +6,23 @@ using UnityEngine.SceneManagement;
 public class PatienceTimer : MonoBehaviour
 {
     public float timeRemaining;
+    public float _timeRemaining;
     public bool timerIsRunning = false;
     public Gold gold;
     public Animator animator;
     public string scenename;
+    
     void OnMouseUp()
     {
         if (animator.gameObject.GetComponent<Animator>().enabled == false)
-            //GameObject.Find("DayTime").GetComponent<DayTimer>().LoadGame();
-            SceneManager.LoadScene(scenename);
+            SceneManager.LoadSceneAsync(scenename);
     }
 
 
     void Start()
     {
         timerIsRunning = true;
+        _timeRemaining = timeRemaining;
     }
 
     void Update() 
@@ -28,7 +30,7 @@ public class PatienceTimer : MonoBehaviour
         if(animator.gameObject.GetComponent<Animator>().enabled == false)
         {
             timerStart();
-        }    
+        }
     }
 
     void timerStart()
@@ -38,7 +40,7 @@ public class PatienceTimer : MonoBehaviour
             if(timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
-                Debug.Log("Patience Timer:" + timeRemaining);
+               // Debug.Log("Patience Timer:" + timeRemaining);
             }
             else
             {
