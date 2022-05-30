@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,10 +16,15 @@ public class Guest : MonoBehaviour
     public bool isMoving = true;
 
     public Animator animator;
+    public AudioSource guestarrivingAudioSource;
+    public AudioSource guestWaitingAudioSource;
 
     // Start is called before the first frame update
     void Start()
     {
+        guestarrivingAudioSource = GameObject.FindWithTag("GuestArrivingAudioSource").GetComponent<AudioSource>();
+        guestWaitingAudioSource = GameObject.FindWithTag("GuestWaitingAudioSource").GetComponent<AudioSource>();
+        
         runPoint = GameObject.FindWithTag("Finish");
     }
 
