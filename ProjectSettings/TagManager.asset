@@ -8,11 +8,6 @@ TagManager:
   - room1
   - room2
   - DayTime
-  - GuestArrivingAudioSource
-  - GuestWaitingAudioSource
-  - Box
-  - Panel_Start
-  - StartAudioSource
   layers:
   - Default
   - TransparentFX

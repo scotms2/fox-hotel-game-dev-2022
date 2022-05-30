@@ -1,54 +1,20 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CabinetComponent : MonoBehaviour
 {
     public Transform parentTrans;
     public int gridItemCount;
     public GameObject childObj;
-    public string gridId;
-    public List<RectTransform> allChildGrid = new List<RectTransform>();
-    public List<BoxComponent> boxDefault = new List<BoxComponent>();
-  
-   public string[] boxId;
-   
+    List<RectTransform> allChildGrid = new List<RectTransform>();
     private void Start()
-    {
-        InstantiateGrid();
-    }
-
-    public void InstantiateGrid()
     {
         for (int i = 0; i < gridItemCount; i++)
         {
             var obj = Instantiate(childObj);
-            obj.name = (i + 1).ToString();
             obj.transform.SetParent(parentTrans);
             allChildGrid.Add(obj.GetComponent<RectTransform>());
-        }
-
-        string[] grids = gridId.Split(',');
-        foreach (var item in grids)
-        {
-            foreach (var grid in allChildGrid)
-            {
-                if (item==grid.name)
-                {
-                    grid.GetComponent<BoxCompletedEvent>().isEnter = true;
-                    grid.GetComponent<BoxCollider2D>().isTrigger = false;
-                    
-                }
-            }
-        }
-
-        foreach (var item in boxDefault)
-        {
-            item.transform.SetParent(GameSystem.instance.Panel_Box.transform);
-            GameSystem.instance.boxList.Add(item);
-            item.GetComponent<Image>().raycastTarget = false;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,6 +22,12 @@ public class CabinetComponent : MonoBehaviour
         if (collision.gameObject.GetComponent<BoxComponent>())
         {
             collision.gameObject.GetComponent<BoxComponent>().isEnter = true;
+            if (!collision.gameObject.GetComponent<Rigidbody2D>())
+            {
+                collision.gameObject.AddComponent<Rigidbody2D>();
+            }
+
+            collision.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
             collision.gameObject.transform.SetParent(GameSystem.instance.Panel_Box.transform);
             GameSystem.instance.boxList.Add(collision.gameObject.GetComponent<BoxComponent>());
         }
@@ -65,9 +37,11 @@ public class CabinetComponent : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         collision.gameObject.GetComponent<BoxComponent>().isEnter = false;
-        collision.gameObject.transform.SetParent(GameSystem.instance.Panel_Left.transform);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(GameSystem.instance.Panel_Left.GetComponent<RectTransform>());
         GameSystem.instance.boxList.Remove(collision.gameObject.GetComponent<BoxComponent>());
+        if (collision.gameObject.GetComponent<Rigidbody2D>())
+        {
+            Destroy(collision.gameObject.GetComponent<Rigidbody2D>());
+        }
     }
     public Vector3 GetNearestPos(Vector3 pos)
     {
