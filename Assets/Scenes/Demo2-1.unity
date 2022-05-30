@@ -1110,6 +1110,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+
 --- !u!1001 &1356847857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1300,6 +1301,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1293106328}
+
   - {fileID: 1801525029}
   - {fileID: 1438406243}
   - {fileID: 1666746243}
@@ -1350,6 +1352,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1358275195}
   m_RootOrder: 2
+
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1568,6 +1571,7 @@ RectTransform:
   - {fileID: 105747606}
   m_Father: {fileID: 1358275195}
   m_RootOrder: 3
+
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -1865,6 +1869,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1358275195}
   m_RootOrder: 1
+
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1998,6 +2003,7 @@ MonoBehaviour:
   btn_start: {fileID: 0}
   startAudioSource: {fileID: 8841492987656704097}
   bgAudioSource: {fileID: 5484351656784620511}
+
 --- !u!4 &1831774210
 Transform:
   m_ObjectHideFlags: 0
@@ -3299,6 +3305,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+
 --- !u!1001 &5771112648706788948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3645,6 +3652,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+
 --- !u!1001 &8585641340459956025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3892,6 +3900,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+
 --- !u!1001 &8896650341086527422
 PrefabInstance:
   m_ObjectHideFlags: 0

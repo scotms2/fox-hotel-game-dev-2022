@@ -36,6 +36,7 @@ public class GameSystem : MonoBehaviour
     public AudioSource explosionPrizeAudioSource;
     public AudioSource BagplacedAudioSource;
 
+
     private void Awake()
     {
         instance = this;
@@ -50,6 +51,7 @@ public class GameSystem : MonoBehaviour
         btnContinue.onClick.AddListener(delegate
         {
             explosionPrizeAudioSource.Play();
+
             StartCoroutine(WaitLoadScene(0));
             SceneManager.UnloadSceneAsync("NewMiniGame");
             SceneManager.LoadScene("Demo2-1");
@@ -74,6 +76,7 @@ public class GameSystem : MonoBehaviour
                 {
                     StopCoroutine(ChangeTime());
                     gameLevelCompletedAudioSource.Play();
+
                     GameOver(100);
                     break;
                 }
@@ -96,6 +99,7 @@ public class GameSystem : MonoBehaviour
         Obj_GameOver.SetActive(true);
         Txt_GameOver.text = $"Minigame competed!You earned {score} coins!";
     }
+
 
 
     public void RandomInstantiateRightBox()

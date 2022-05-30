@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public AudioSource bgAudioSource;
 
+
     private void Awake()
     {
         gameManager = this;
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
                 startAudioSource.Play();
                 Panel_Start.SetActive(false);
                 bgAudioSource.Play();
+
             });
         }
     }
