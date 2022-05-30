@@ -87,7 +87,6 @@ public class GameSystem : MonoBehaviour
     private void GameOver(int score)
     {
         Obj_GameOver.SetActive(true);
-
         Txt_GameOver.text = $"Minigame competed! You earned {score} coins!";
     }
 
