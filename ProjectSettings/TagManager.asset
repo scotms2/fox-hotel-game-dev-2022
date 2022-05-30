@@ -8,6 +8,7 @@ TagManager:
   - room1
   - room2
   - DayTime
+  - OrangeFox
   layers:
   - Default
   - TransparentFX

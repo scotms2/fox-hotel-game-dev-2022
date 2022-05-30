@@ -10,6 +10,10 @@ public class OrangeFox : MonoBehaviour
     public float runSpeed;
     public GameObject dialogue;
 
+    //public DialogueUI dialogueUI;
+
+    //private bool dialogueShow = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +35,10 @@ public class OrangeFox : MonoBehaviour
         else {
             GetComponent<BoxCollider2D>().enabled = true;
             isMoving = false;
-            dialogue.SetActive(true);
         }
+    }
+
+    private void OnTriggerEnter(Collider col) {
+        Debug.Log(col.gameObject);
     }
 }

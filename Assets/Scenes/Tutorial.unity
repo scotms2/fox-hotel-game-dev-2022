@@ -757,7 +757,7 @@ GameObject:
   - component: {fileID: 493494207}
   m_Layer: 0
   m_Name: Fox
-  m_TagString: Untagged
+  m_TagString: OrangeFox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1721,7 +1721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2707411083117338528, guid: 834d3d7f1eed8fe4cbb48ad1b4f73e7d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0471
+      value: 0.0613
       objectReference: {fileID: 0}
     - target: {fileID: 2707411083117338528, guid: 834d3d7f1eed8fe4cbb48ad1b4f73e7d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1729,7 +1729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2707411083117338528, guid: 834d3d7f1eed8fe4cbb48ad1b4f73e7d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0468
+      value: 0.0403
       objectReference: {fileID: 0}
     - target: {fileID: 2707411083117338528, guid: 834d3d7f1eed8fe4cbb48ad1b4f73e7d, type: 3}
       propertyPath: m_LocalRotation.w
