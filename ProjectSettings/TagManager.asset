@@ -3,11 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Yes
-  - room1
-  - room2
-  - DayTime
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -15,7 +11,7 @@ TagManager:
   - Fox
   - Water
   - UI
-  - AnimalAnimator
+  - 
   - 
   - 
   - 
