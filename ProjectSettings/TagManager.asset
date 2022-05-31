@@ -9,6 +9,12 @@ TagManager:
   - room2
   - DayTime
   - OrangeFox
+  - Point1
+  - Point2
+  - Point3
+  - Point4
+  - OldGreyPoint1
+  - GreyFox
   layers:
   - Default
   - TransparentFX

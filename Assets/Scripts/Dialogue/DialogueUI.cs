@@ -10,6 +10,8 @@ public class DialogueUI : MonoBehaviour
 
     private TypewriterEffect typewriterEffect;
 
+    public bool dialogueBoxClosed = true;
+
 
     private void Start() {
         typewriterEffect = GetComponent<TypewriterEffect>();
@@ -20,6 +22,7 @@ public class DialogueUI : MonoBehaviour
     public void ShowDialogue(DialogueObject dialogueObject) 
     {
         gameObject.SetActive(true);
+        dialogueBoxClosed = false;
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
 
@@ -37,6 +40,7 @@ public class DialogueUI : MonoBehaviour
     private void CloseDialogueBox()
     {
         gameObject.SetActive(false);
+        dialogueBoxClosed = true;
         textLabel.text = string.Empty;
     }
 }
