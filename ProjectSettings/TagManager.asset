@@ -8,15 +8,11 @@ TagManager:
   - room1
   - room2
   - DayTime
-  - OrangeFox
-  - Point1
-  - Point2
-  - Point3
-  - Point4
-  - OldGreyPoint1
-  - GreyFox
-  - GuestPoint1
-  - Guest
+  - GuestArrivingAudioSource
+  - GuestWaitingAudioSource
+  - Box
+  - Panel_Start
+  - StartAudioSource
   layers:
   - Default
   - TransparentFX

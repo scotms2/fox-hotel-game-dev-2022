@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,11 +11,20 @@ public class Guest : MonoBehaviour
 
     public GameObject runPoint;
 
-    private double MinDist = 0.5;
+    private double MinDist = 0.05;
+
+    public bool isMoving = true;
+
+    public Animator animator;
+    public AudioSource guestarrivingAudioSource;
+    public AudioSource guestWaitingAudioSource;
 
     // Start is called before the first frame update
     void Start()
     {
+        guestarrivingAudioSource = GameObject.FindWithTag("GuestArrivingAudioSource").GetComponent<AudioSource>();
+        guestWaitingAudioSource = GameObject.FindWithTag("GuestWaitingAudioSource").GetComponent<AudioSource>();
+        
         runPoint = GameObject.FindWithTag("Finish");
     }
 
@@ -22,6 +32,11 @@ public class Guest : MonoBehaviour
     void Update()
     {
         moveGuest();
+
+        if(isMoving == false)
+        {
+            animator.gameObject.GetComponent<Animator>().enabled = false;
+        }
     }
 
     public void SetSpawner(Spawner spawner)
@@ -33,11 +48,11 @@ public class Guest : MonoBehaviour
     {
         if (Vector3.Distance(this.transform.position, runPoint.transform.position) >= MinDist)
         {
-            transform.position += transform.right * runSpeed * Time.deltaTime;
+            transform.position -= transform.right * runSpeed * Time.deltaTime;
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collider){
-        Debug.Log("Collided with reception");
+        else {
+            GetComponent<BoxCollider2D>().enabled = true;
+            isMoving = false;
+        }
     }
 }
