@@ -9,27 +9,33 @@ public class Guest : MonoBehaviour
     public float runSpeed;
 
     public GameObject runPoint;
+    //public GameObject runPoint2;
 
     private double MinDist = 0.05;
 
-    public bool isMoving = true;
+    public bool isMoving;
 
-    public Animator animator;
+    private Animator animator;
+
+    public GameObject partOneDialogue;
 
     // Start is called before the first frame update
     void Start()
     {
-        runPoint = GameObject.FindWithTag("Finish");
+        animator = GetComponent<Animator>();
+        isMoving = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveGuest();
-
-        if(isMoving == false)
+        if(isMoving)
         {
-            animator.gameObject.GetComponent<Animator>().enabled = false;
+            animator.Play("Base Layer.Walk");
+            moveGuest();
+        }
+        else{
+            animator.Play("Base Layer.Idle");
         }
     }
 
@@ -40,13 +46,15 @@ public class Guest : MonoBehaviour
 
     public void moveGuest()
     {
-        if (Vector3.Distance(this.transform.position, runPoint.transform.position) >= MinDist)
+        transform.position -= transform.right * runSpeed * Time.deltaTime;
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if(other.gameObject.tag == "GuestPoint1")
         {
-            transform.position -= transform.right * runSpeed * Time.deltaTime;
-        }
-        else {
-            GetComponent<BoxCollider2D>().enabled = true;
+            Debug.Log("Hit Guest Point 1");
             isMoving = false;
+            partOneDialogue.SetActive(true);
         }
     }
 }

@@ -11,16 +11,19 @@ public class GreyFox : MonoBehaviour
     private bool reachedPoint1;
     public OrangeFox orangeFox;
     public SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         reachedPoint1 = false;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        animator.Play("Base Layer.Idle");
         if(orangeFox.reachedPoint3 && !reachedPoint1)
         {
             spriteRenderer.flipX = true;

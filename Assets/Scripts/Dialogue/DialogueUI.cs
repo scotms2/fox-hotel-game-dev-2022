@@ -6,7 +6,7 @@ public class DialogueUI : MonoBehaviour
 {
     //[SerializeField] private GameObject dialogueBox;
     [SerializeField] private TextMeshProUGUI textLabel;
-    [SerializeField] private DialogueObject testDialogue;
+    [SerializeField] private DialogueObject IntroDialogue;
 
     private TypewriterEffect typewriterEffect;
 
@@ -16,7 +16,7 @@ public class DialogueUI : MonoBehaviour
     private void Start() {
         typewriterEffect = GetComponent<TypewriterEffect>();
         CloseDialogueBox();
-        ShowDialogue(testDialogue);
+        ShowDialogue(IntroDialogue);
     }
 
     public void ShowDialogue(DialogueObject dialogueObject) 

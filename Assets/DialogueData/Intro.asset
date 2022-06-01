@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ff81ec659da72646bad6c90e3ab7823, type: 3}
-  m_Name: Test
+  m_Name: Intro
   m_EditorClassIdentifier: 
   dialogue:
   - 'Welcome to The Fox Den Hotel,
