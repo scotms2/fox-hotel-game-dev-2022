@@ -1,19 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameSystem : MonoBehaviour
 {
-    public Gold Gold;
+    public Gold gold;
     public static GameSystem instance;
-    public List<BoxComponent> boxs = new List<BoxComponent>();
     public Text Txt_Time;
     private int time = 60;
     public GameObject Obj_GameOver;
     public Text Txt_GameOver;
+    public Button btnContinue;
+
     public bool flag = false;
+    public bool down = false;
 
     public GameObject Panel_Box;
     public GameObject Panel_Left;
@@ -21,18 +27,34 @@ public class GameSystem : MonoBehaviour
     public CabinetComponent CabinetComponent;
     public List<CabinetComponent> cabinets = new List<CabinetComponent>();
     public List<BoxComponent> boxList = new List<BoxComponent>();
+    public List<BoxComponent> box11 = new List<BoxComponent>();
+    public List<BoxComponent> box12 = new List<BoxComponent>();
+    public List<BoxComponent> box22 = new List<BoxComponent>();
+    public List<BoxComponent> box31 = new List<BoxComponent>();
+    public AudioSource BGMiniAudioSource;
+    public AudioSource gameLevelCompletedAudioSource;
+    public AudioSource explosionPrizeAudioSource;
+    public AudioSource BagplacedAudioSource;
 
     private void Awake()
     {
         instance = this;
     }
+
     void Start()
     {
+        BGMiniAudioSource.Play();
         StartCoroutine(ChangeTime());
-
-        RandomInstantiateLeftBox();
         RandomInstantiateRightBox();
+        RandomInstantiateLeftBox();
+        btnContinue.onClick.AddListener(delegate
+        {
+            explosionPrizeAudioSource.Play();
+            //SceneManager.UnloadSceneAsync("NewMiniGame");
+            SceneManager.LoadScene("Demo2-1");
+        });
     }
+
     private IEnumerator ChangeTime()
     {
         while (time > 0)
@@ -42,39 +64,51 @@ public class GameSystem : MonoBehaviour
             Txt_Time.text = "Time:" + time;
             if (Panel_Left.transform.childCount == 0)
             {
-                flag = boxList.TrueForAll(x => x.isChangePos == false);
-                if (flag == true)
+                flag = CabinetComponent.allChildGrid.TrueForAll(
+                    x => x.GetComponent<BoxCompletedEvent>().isEnter == true);
+                down = boxList.TrueForAll(
+                    x => x.isDown == true);
+
+                if (flag == true && down == true)
                 {
-                    WaitTimeManager.WaitTime(2, delegate
-                    {
-                        StopCoroutine(ChangeTime());
-                        GameOver("Successful");
-                        StartCoroutine(WaitLoadScene(0));
-                    });
+                    StopCoroutine(ChangeTime());
+                    gameLevelCompletedAudioSource.Play();
+                    StartCoroutine(WaitLoadScene(0));
+
+                    GameOver(1);
+                    break;
                 }
             }
         }
-        GameOver("GameOver!!!");
-        StartCoroutine(WaitLoadScene(1));
+        if (time<=0)
+        {
+            GameOver(0);
+            StartCoroutine(WaitLoadScene(1));
+
+        }
     }
 
     IEnumerator WaitLoadScene(int i)
     {
         yield return new WaitForSeconds(2f);
         if (i == 0)
-            Gold.score += 50;
-        Gold.IsDisPlayer = true;
-        SceneManager.LoadScene("Demo2");
+            gold.score += 50;
+        gold.IsDisPlayer = true;
     }
 
 
-    private void GameOver(string str)
+    private void GameOver(int isSuccess)
     {
         Obj_GameOver.SetActive(true);
-        Txt_GameOver.text = str;
+        if (isSuccess==1)
+        {
+            Txt_GameOver.text = $"Minigame compkete!Your earned 100 coins!";
+        }
+        else
+        {
+            Txt_GameOver.text = $"GameOver!";
+        }
     }
-
-
 
 
     public void RandomInstantiateRightBox()
@@ -82,15 +116,36 @@ public class GameSystem : MonoBehaviour
         CabinetComponent a = Instantiate(cabinets[Random.Range(0, cabinets.Count)], Panel_Right.transform);
         CabinetComponent = a;
     }
+
     public void RandomInstantiateLeftBox()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < CabinetComponent.boxId.Length; i++)
         {
-            BoxComponent a = Instantiate(boxs[Random.Range(0, boxs.Count)], Panel_Left.transform);
-            if (a.gameObject.GetComponent<Rigidbody2D>())
+            string[] names = CabinetComponent.boxId[i].Split(',');
+            if (names[0] == "11")
             {
-                Destroy(a.gameObject.GetComponent<Rigidbody2D>());
+                InstantiateBox(int.Parse(names[1]), box11);
             }
+            else if (names[0] == "12")
+            {
+                InstantiateBox(int.Parse(names[1]), box12);
+            }
+            else if (names[0] == "22")
+            {
+                InstantiateBox(int.Parse(names[1]), box22);
+            }
+            else
+            {
+                InstantiateBox(int.Parse(names[1]), box31);
+            }
+        }
+    }
+
+    void InstantiateBox(int num, List<BoxComponent> boxlist)
+    {
+        for (int i = 0; i < num; i++)
+        {
+            BoxComponent box = Instantiate(boxlist[Random.Range(0, boxlist.Count)], Panel_Left.transform);
         }
     }
 }
