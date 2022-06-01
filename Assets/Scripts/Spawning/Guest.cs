@@ -11,7 +11,7 @@ public class Guest : MonoBehaviour
     public GameObject runPoint;
     //public GameObject runPoint2;
 
-    private double MinDist = 0.05;
+    //private double MinDist = 0.05;
 
     public bool isMoving;
 

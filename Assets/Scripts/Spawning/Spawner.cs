@@ -30,9 +30,9 @@ public class Spawner : MonoBehaviour
             GameObject guest = Instantiate(guestPrefab, randomPosition, guestPrefab.transform.rotation);
             guestList.Add(guest);
 
-        // StartCoroutine(SpawnRoutine());
+            // StartCoroutine(SpawnRoutine());
 
-            guestGame = guest;
+            //guestGame = guest;
             guest.GetComponent<Guest>().SetSpawner(this);
         }
     }

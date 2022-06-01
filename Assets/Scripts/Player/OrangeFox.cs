@@ -5,7 +5,7 @@ using UnityEngine;
 public class OrangeFox : MonoBehaviour
 {
     public bool isMoving;
-    private double MinDist = 0.04;
+    //private double MinDist = 0.04;
     public GameObject runPoint;
     public GameObject runPoint2;
     public GameObject runPoint3;
