@@ -10,6 +10,9 @@ public class PatienceTimer : MonoBehaviour
     public Gold gold;
     public Animator animator;
     public string scenename;
+    private bool temp = true;
+
+    public GameObject timerPrefab;
     void OnMouseUp()
     {
         if (animator.gameObject.GetComponent<Animator>().enabled == false)
@@ -21,6 +24,7 @@ public class PatienceTimer : MonoBehaviour
     void Start()
     {
         timerIsRunning = true;
+        
     }
 
     void Update() 
@@ -31,9 +35,14 @@ public class PatienceTimer : MonoBehaviour
         }    
     }
 
-    void timerStart()
+    public void timerStart()
     {
-        if(timerIsRunning)
+        if (temp == true)
+        {
+            send();
+            temp = false;
+        }
+        if (timerIsRunning)
         {
             if(timeRemaining > 0)
             {
@@ -47,5 +56,10 @@ public class PatienceTimer : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+    public void send()
+    {
+        timerPrefab  = Instantiate(timerPrefab, new Vector3(0.056f,0.021f,0.174f), timerPrefab.transform.rotation);
+        timerPrefab.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
     }
 }

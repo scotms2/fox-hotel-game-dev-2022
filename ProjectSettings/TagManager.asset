@@ -8,6 +8,7 @@ TagManager:
   - room1
   - room2
   - DayTime
+  - WaitingTimer
   layers:
   - Default
   - TransparentFX
