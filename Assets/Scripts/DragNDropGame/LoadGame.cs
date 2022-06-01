@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class LoadGame : MonoBehaviour
 {
-    [SerializeField] private string miniGameScene;
-    [SerializeField] private string mainDemoScene;
+    [SerializeField] private string NewMiniGame;
+    [SerializeField] private string Tutorial;
 
     void OnMouseUp()
     {
-        SceneManager.LoadScene(miniGameScene);
+        SceneManager.LoadScene(NewMiniGame);
         // Destroy(gameObject);
     }
 
     public void back()
     {
-        SceneManager.LoadScene(mainDemoScene);
+        SceneManager.LoadScene(NewMiniGame);
     }
 }

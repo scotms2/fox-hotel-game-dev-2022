@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public bool canSpawn;
+    public bool canSpawn = true;
 
     public GameObject guestPrefab;
 
@@ -14,58 +14,58 @@ public class Spawner : MonoBehaviour
 
     private List<GameObject> guestList = new List<GameObject>();
 
-
+    //private bool spawnOnce;
+    public GameObject guestGame;
+    public Gold Gold;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnRoutine());
+        //spawnOnce = true;
+        SpawnGuest();
     }
 
-    void Update()
-    {
-        if(GameObject.Find("Canvas").gameObject.GetComponent<DayTimer>().day == true)
-        {
-            canSpawn = true;
-            Debug.Log("can spawn");
-        }
-        else
-        {
-            canSpawn = false;
-            Debug.Log("can not spawn");
+    // void Update()
+    // {
+    //     if(gameObject.activeSelf)
+    //     {
+    //         Vector3 randomPosition = guestSpawnPositions[Random.Range(0, guestSpawnPositions.Count)].position;
+    //         GameObject guest = Instantiate(guestPrefab, randomPosition, guestPrefab.transform.rotation);
+    //         guestList.Add(guest);
 
-        }
+    //         //StartCoroutine(SpawnRoutine());
 
-        // StartCoroutine(SpawnRoutine());
-
-    }
+    //         guestGame = guest;
+    //         guest.GetComponent<Guest>().SetSpawner(this);
+    //     }
+    // }
 
 
     private void SpawnGuest() {
-        // if(spawnOnce =true)
-        // {
-        Vector3 randomPosition = guestSpawnPositions[Random.Range(0, guestSpawnPositions.Count)].position;
+        if(gameObject.activeSelf)
+        {
+            Vector3 randomPosition = guestSpawnPositions[Random.Range(0, guestSpawnPositions.Count)].position;
 
-        GameObject guest = Instantiate(guestPrefab, randomPosition, guestPrefab.transform.rotation);
+            GameObject guest = Instantiate(guestPrefab, randomPosition, guestPrefab.transform.rotation);
 
-        guestList.Add(guest);
+            guestList.Add(guest);
 
-        guest.GetComponent<Guest>().SetSpawner(this);
-        // spawnOnce =false;
-        // }
+            guestGame = guest;
+            guest.GetComponent<Guest>().SetSpawner(this);
+        }
     }
 
-    private IEnumerator SpawnRoutine()
-    {
+    //private IEnumerator SpawnRoutine()
+    //{
         // if(canSpawn)
         // {
-            while(canSpawn)
-            {
-                SpawnGuest();
-                yield return new WaitForSeconds(timeBetweenSpawns);
-            }
+            //while(canSpawn)
+            //{
+                //SpawnGuest();
+                //yield return new WaitForSeconds(timeBetweenSpawns);
+            //}
         // }
-    }
+    //}
 
     // public void RemoveGuestsFromList(GameObject guest)
     // {
