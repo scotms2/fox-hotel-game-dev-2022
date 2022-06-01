@@ -9,34 +9,19 @@ public class Guest : MonoBehaviour
     public float runSpeed;
 
     public GameObject runPoint;
-    //public GameObject runPoint2;
 
-    private double MinDist = 0.05;
-
-    public bool isMoving;
-
-    private Animator animator;
-
-    public GameObject partOneDialogue;
+    private double MinDist = 0.5;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
-        isMoving = true;
+        runPoint = GameObject.FindWithTag("Finish");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isMoving)
-        {
-            animator.Play("Base Layer.Walk");
-            moveGuest();
-        }
-        else{
-            animator.Play("Base Layer.Idle");
-        }
+        moveGuest();
     }
 
     public void SetSpawner(Spawner spawner)
@@ -46,15 +31,9 @@ public class Guest : MonoBehaviour
 
     public void moveGuest()
     {
-        transform.position -= transform.right * runSpeed * Time.deltaTime;
-    }
-
-    void OnTriggerEnter(Collider other) {
-        if(other.gameObject.tag == "GuestPoint1")
+        if (Vector3.Distance(this.transform.position, runPoint.transform.position) >= MinDist)
         {
-            Debug.Log("Hit Guest Point 1");
-            isMoving = false;
-            partOneDialogue.SetActive(true);
+            transform.position += transform.right * runSpeed * Time.deltaTime;
         }
     }
 
