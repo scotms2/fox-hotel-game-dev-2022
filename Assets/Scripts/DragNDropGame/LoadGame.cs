@@ -5,13 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class LoadGame : MonoBehaviour
 {
-    public Gold Gold;
-    public string scenename;
-    //[SerializeField] private string mainDemoScene;
+    [SerializeField] private string miniGameScene;
+    [SerializeField] private string mainDemoScene;
 
+    void OnMouseUp()
+    {
+        SceneManager.LoadScene(miniGameScene);
+        // Destroy(gameObject);
+    }
 
     public void back()
     {
-        GameObject.Find("DayTime").GetComponent<DayTimer>().StartGame();
+        SceneManager.LoadScene(mainDemoScene);
     }
 }
