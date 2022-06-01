@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueUI : MonoBehaviour
 {
@@ -10,9 +11,8 @@ public class DialogueUI : MonoBehaviour
 
     private TypewriterEffect typewriterEffect;
 
-    public bool dialogueBoxClosed = true;
-
-
+    public bool dialogueBoxClosed;
+    
     private void Start() {
         typewriterEffect = GetComponent<TypewriterEffect>();
         CloseDialogueBox();

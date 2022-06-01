@@ -24,6 +24,7 @@ public class OrangeFox : MonoBehaviour
     public Guest guest;
     public GameObject guestPath;
     private Animator animator;
+    public TitleScreenButton titleScreenButton; 
 
     // Start is called before the first frame update
     void Start()
@@ -41,27 +42,30 @@ public class OrangeFox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.Play("Base Layer.Red - Idle");
-        if(!reachedPoint1 && isMoving)
+        if(titleScreenButton.gameStart)
         {
-            movePlayerToPoint1();
-        }
-        if(reachedPoint1 && !reachedPoint2)
-        {
-            isMoving = true;
-            if(dialogueUI.dialogueBoxClosed && isMoving)
+            animator.Play("Base Layer.Red - Idle");
+            if(!reachedPoint1 && isMoving)
             {
-                movePlayerToPoint2();
+                movePlayerToPoint1();
             }
-        }
-        if(reachedPoint2 && !reachedPoint3 && isMoving)
-        {
-            movePlayerToPoint3();
-        }
-        if(reachedPoint3 && !reachedPoint4 && isMoving)
-        {
-            spriteRenderer.flipX = true;
-            movePlayerToPoint4();
+            if(reachedPoint1 && !reachedPoint2)
+            {
+                isMoving = true;
+                if(dialogueUI.dialogueBoxClosed && isMoving)
+                {
+                    movePlayerToPoint2();
+                }
+            }
+            if(reachedPoint2 && !reachedPoint3 && isMoving)
+            {
+                movePlayerToPoint3();
+            }
+            if(reachedPoint3 && !reachedPoint4 && isMoving)
+            {
+                spriteRenderer.flipX = true;
+                movePlayerToPoint4();
+            }
         }
     }
 

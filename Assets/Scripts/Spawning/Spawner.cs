@@ -50,6 +50,7 @@ public class Spawner : MonoBehaviour
 
             guestList.Add(guest);
 
+            guestGame = guest;
             guest.GetComponent<Guest>().SetSpawner(this);
         }
     }

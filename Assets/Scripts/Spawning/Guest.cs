@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Guest : MonoBehaviour
 {
@@ -14,12 +15,14 @@ public class Guest : MonoBehaviour
     //private double MinDist = 0.05;
 
     public bool isMoving;
-
+    public bool idle;
+    private bool reachedPoint1;
     private Animator animator;
 
     public GameObject partOneDialogue;
     public AudioSource guestarrivingAudioSource;
     public AudioSource guestWaitingAudioSource;
+    public string scenename;
 
     // Start is called before the first frame update
     void Start()
@@ -28,18 +31,22 @@ public class Guest : MonoBehaviour
         guestWaitingAudioSource = GameObject.FindWithTag("GuestWaitingAudioSource").GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         isMoving = true;
+        reachedPoint1 = false;
+        idle = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isMoving)
+        if(!reachedPoint1 && isMoving)
         {
+            idle = false;
             animator.Play("Base Layer.Walk");
             moveGuest();
         }
         else{
             animator.Play("Base Layer.Idle");
+            idle = true;
         }
     }
 
@@ -56,13 +63,16 @@ public class Guest : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "GuestPoint1")
         {
-            Debug.Log("Hit Guest Point 1");
+            //Debug.Log("Hit Guest Point 1");
             isMoving = false;
+            reachedPoint1 = true;
             partOneDialogue.SetActive(true);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider){
-        Debug.Log("Collided with reception");
+    void OnMouseDown()
+    {
+        Debug.Log("Loading New Scene..");
+        SceneManager.LoadScene(scenename);
     }
 }
