@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Demo2.unity
-    guid: d854cc5ffd354b744b16652425421d29
+    path: Assets/Scenes/Demo1.unity
+    guid: 94c7ad9b58101704aae4989446e84d3c
   - enabled: 1
-    path: Assets/Scenes/NewMiniGame.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MiniGame.unity
+    guid: e6f1cc460645e784ea31aa875cd63572
   m_configObjects: {}
