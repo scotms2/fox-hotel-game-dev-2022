@@ -19,25 +19,22 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnRoutine());
+        SpawnGuest();
     }
 
     void Update()
     {
-        if(GameObject.Find("Canvas").gameObject.GetComponent<DayTimer>().day == true)
+        if(gameObject.activeSelf)
         {
-            canSpawn = true;
-            Debug.Log("can spawn");
-        }
-        else
-        {
-            canSpawn = false;
-            Debug.Log("can not spawn");
-
-        }
+            Vector3 randomPosition = guestSpawnPositions[Random.Range(0, guestSpawnPositions.Count)].position;
+            GameObject guest = Instantiate(guestPrefab, randomPosition, guestPrefab.transform.rotation);
+            guestList.Add(guest);
 
         // StartCoroutine(SpawnRoutine());
 
+            guestGame = guest;
+            guest.GetComponent<Guest>().SetSpawner(this);
+        }
     }
 
 
@@ -55,17 +52,17 @@ public class Spawner : MonoBehaviour
         // }
     }
 
-    private IEnumerator SpawnRoutine()
-    {
+    //private IEnumerator SpawnRoutine()
+    //{
         // if(canSpawn)
         // {
-            while(canSpawn)
-            {
-                SpawnGuest();
-                yield return new WaitForSeconds(timeBetweenSpawns);
-            }
+            //while(canSpawn)
+            //{
+                //SpawnGuest();
+                //yield return new WaitForSeconds(timeBetweenSpawns);
+            //}
         // }
-    }
+    //}
 
     // public void RemoveGuestsFromList(GameObject guest)
     // {
