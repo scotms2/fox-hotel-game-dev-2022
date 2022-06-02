@@ -35,6 +35,7 @@ public class GameSystem : MonoBehaviour
     public AudioSource gameLevelCompletedAudioSource;
     public AudioSource explosionPrizeAudioSource;
     public AudioSource BagplacedAudioSource;
+    public DialogueUI dialogueUI;
 
     private void Awake()
     {
@@ -51,7 +52,7 @@ public class GameSystem : MonoBehaviour
         {
             explosionPrizeAudioSource.Play();
             //SceneManager.UnloadSceneAsync("NewMiniGame");
-            SceneManager.LoadScene("Demo2-1");
+            SceneManager.LoadScene("Tutorial-1");
         });
     }
 
@@ -102,7 +103,7 @@ public class GameSystem : MonoBehaviour
         Obj_GameOver.SetActive(true);
         if (isSuccess==1)
         {
-            Txt_GameOver.text = $"Minigame compkete!Your earned 100 coins!";
+            Txt_GameOver.text = $"Minigame complete!You earned 100 coins!";
         }
         else
         {

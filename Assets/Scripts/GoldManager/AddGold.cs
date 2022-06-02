@@ -22,7 +22,7 @@ public class AddGold : MonoBehaviour
     void Update()
     {
         //txt.text = "Gold: " + money.ToString();
-        txt.text = "Gold: " + Gold.score.ToString();
+        txt.text = Gold.score.ToString();
 
     }
 

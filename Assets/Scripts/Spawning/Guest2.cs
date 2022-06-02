@@ -1,40 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Guest : MonoBehaviour
+public class Guest2 : MonoBehaviour
 {
-    private Spawner guestSpawner;
-
-    public float runSpeed;
-
-    public GameObject runPoint;
-    //public GameObject runPoint2;
-
-    //private double MinDist = 0.05;
-
+    private Animator animator;
     public bool isMoving;
     public bool idle;
     private bool reachedPoint1;
-    private Animator animator;
-
-    public GameObject partOneDialogue;
+    private bool reachedPoint2;
     public AudioSource guestarrivingAudioSource;
     public AudioSource guestWaitingAudioSource;
-    public string scenename;
     private double MinDist = 0.05;
+    public float runSpeed;
+    public GameObject runPoint;
+    public GameObject runPoint2;
 
+    private Vector3 roomPos = new Vector3(0.0909f, 0.574f, 0.1377f);
 
     // Start is called before the first frame update
     void Start()
     {
         guestarrivingAudioSource = GameObject.FindWithTag("GuestArrivingAudioSource").GetComponent<AudioSource>();
         guestWaitingAudioSource = GameObject.FindWithTag("GuestWaitingAudioSource").GetComponent<AudioSource>();
-        animator = GetComponent<Animator>();
         isMoving = true;
         reachedPoint1 = false;
-        idle = false;
+        reachedPoint2 = false;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -46,44 +38,43 @@ public class Guest : MonoBehaviour
             animator.Play("Base Layer.Walk");
             moveGuest();
         }
-        else{
-            animator.Play("Base Layer.Idle");
-            idle = true;
+        if(!reachedPoint2 && isMoving)
+        {
+            moveGuestForward();
         }
-    }
 
-    public void SetSpawner(Spawner spawner)
-    {
-        guestSpawner = spawner;
     }
 
     public void moveGuest()
     {
         if (Vector3.Distance(this.transform.position, runPoint.transform.position) >= MinDist)
         {
-            transform.position -= transform.right * runSpeed * Time.deltaTime;
+            transform.position += transform.right * runSpeed * Time.deltaTime;
         }
         else {
             GetComponent<BoxCollider2D>().enabled = true;
-            isMoving = false;
             reachedPoint1 = true;
-            partOneDialogue.SetActive(true);
-        }    
+        }  
     }
 
-    // void OnTriggerEnter2D (Collider2D other) {
-       
-        
-    //         Debug.Log("Hit Guest Point 1");
-    //         isMoving = false;
-    //         reachedPoint1 = true;
-    //         partOneDialogue.SetActive(true);
-        
-    // }
-
-    void OnMouseUp()
+    public void moveGuestForward()
     {
-        Debug.Log("sceneName to load: " + scenename);
-        SceneManager.LoadScene(scenename);    
+        if (Vector3.Distance(this.transform.position, runPoint2.transform.position) >= MinDist)
+        {
+            transform.position -= transform.forward * runSpeed * Time.deltaTime;
+        }
+        else {
+            GetComponent<BoxCollider2D>().enabled = true;
+            reachedPoint2 = true;
+            isMoving = false;
+            gameObject.SetActive(false);
+            placeGuestInRoom();
+        }  
     }
-}   
+
+    public void placeGuestInRoom()
+    {
+        gameObject.transform.position = roomPos;
+        gameObject.SetActive(true);
+    }
+}

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99eb5f1028b90a7479777d1a91e0aa6d, type: 3}
-  m_Name: New Gold
+  m_Script: {fileID: 11500000, guid: 8ff81ec659da72646bad6c90e3ab7823, type: 3}
+  m_Name: MiniGame
   m_EditorClassIdentifier: 
-  score: 100
-  m_Time: 40
-  IsDisPlayer: 0
+  dialogue:
+  - "After clicking on a guest \nyou will be asked to \ncomplete a task for \nthem."
+  - "In this minigame you \nneed to fit all the guests \nbags into their \nwardrobe."

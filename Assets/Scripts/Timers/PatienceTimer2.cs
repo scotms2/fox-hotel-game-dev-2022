@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class PatienceTimer : MonoBehaviour
+public class PatienceTimer2 : MonoBehaviour
 {
     public float timeRemaining;
     public bool timerIsRunning = false;
@@ -12,7 +11,6 @@ public class PatienceTimer : MonoBehaviour
     private bool temp = true;
     public GameObject timerPrefab;
     private Guest3 guest;
-    public DialogueUI dialogueUI;
 
     void Start()
     {
@@ -27,10 +25,6 @@ public class PatienceTimer : MonoBehaviour
         {
             timerStart();
         }    
-        if(dialogueUI.dialogueBoxClosed)
-        {
-            animator.enabled = true;
-        }
     }
 
     void timerStart()
