@@ -10,12 +10,12 @@ public class PatienceTimer2 : MonoBehaviour
     public Animator animator;
     private bool temp = true;
     public GameObject timerPrefab;
-    private Guest3 guest;
+    private Guest2 guest;
 
     void Start()
     {
         timerIsRunning = true;
-        guest = GetComponent<Guest3>();
+        guest = GetComponent<Guest2>();
         animator.enabled = false;
     }
 

@@ -11,13 +11,13 @@ public class PatienceTimer : MonoBehaviour
     public Animator animator;
     private bool temp = true;
     public GameObject timerPrefab;
-    private Guest3 guest;
+    private Guest guest;
     public DialogueUI dialogueUI;
 
     void Start()
     {
         timerIsRunning = true;
-        guest = GetComponent<Guest3>();
+        guest = GetComponent<Guest>();
         animator.enabled = false;
     }
 
