@@ -80,14 +80,12 @@ public class GameSystem : MonoBehaviour
                     gameLevelCompletedAudioSource.Play();
                     StartCoroutine(WaitLoadScene(0));
 
-                    GameOver(1);
                     break;
                 }
             }
         }
         if (time<=0)
         {
-            GameOver(0);
             StartCoroutine(WaitLoadScene(1));
 
         }
@@ -97,7 +95,12 @@ public class GameSystem : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         if (i == 0)
-            gold.score += 50;
+        {
+            gold.score += 100;
+            GameOver(1);
+        }
+        else
+            GameOver(0);
         gold.IsDisPlayer = true;
     }
 

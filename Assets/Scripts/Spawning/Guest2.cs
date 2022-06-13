@@ -5,7 +5,7 @@ using UnityEngine;
 public class Guest2 : MonoBehaviour
 {
     private Animator animator;
-    public bool isMoving;
+    [SerializeField]private bool isMoving=true;
     public bool idle;
     private bool reachedPoint1;
     private bool reachedPoint2;
@@ -16,16 +16,13 @@ public class Guest2 : MonoBehaviour
     public GameObject runPoint;
     public GameObject runPoint2;
 
-    private Vector3 roomPos = new Vector3(0.0909f, 0.574f, 0.1377f);
+    [SerializeField]private Transform roomPos ;
 
     // Start is called before the first frame update
     void Start()
     {
         guestarrivingAudioSource = GameObject.FindWithTag("GuestArrivingAudioSource").GetComponent<AudioSource>();
         guestWaitingAudioSource = GameObject.FindWithTag("GuestWaitingAudioSource").GetComponent<AudioSource>();
-        isMoving = true;
-        reachedPoint1 = false;
-        reachedPoint2 = false;
         animator = GetComponent<Animator>();
     }
 
@@ -74,7 +71,8 @@ public class Guest2 : MonoBehaviour
 
     public void placeGuestInRoom()
     {
-        gameObject.transform.position = roomPos;
+        isMoving = false;
+        gameObject.transform.position = roomPos.position;
         gameObject.SetActive(true);
     }
 }
