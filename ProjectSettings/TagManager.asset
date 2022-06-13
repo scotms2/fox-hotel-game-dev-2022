@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Yes
+  - room1
+  - room2
+  - DayTime
+  - OrangeFox
+  - Point1
+  - Point2
+  - Point3
+  - Point4
+  - OldGreyPoint1
+  - GreyFox
+  - GuestPoint1
+  - Guest
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Fox
+  - Water
+  - UI
+  - AnimalAnimator
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 385308123
+    locked: 0
+  - name: Destinations
+    uniqueID: 4200341533
+    locked: 0
+  - name: Fox
+    uniqueID: 3214170157
+    locked: 0

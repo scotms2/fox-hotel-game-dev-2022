@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99eb5f1028b90a7479777d1a91e0aa6d, type: 3}
   m_Name: New Gold
   m_EditorClassIdentifier: 
-  score: 0
+  score: 100
   m_Time: 40
-  IsDisPlayer: 1
-  currclient: 0
+  IsDisPlayer: 0

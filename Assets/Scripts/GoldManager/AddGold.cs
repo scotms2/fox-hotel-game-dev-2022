@@ -38,7 +38,7 @@ public class AddGold : MonoBehaviour
         //Gold.score = 0;
         Gold.m_Time = 40;
         Gold.IsDisPlayer = false;
-        Gold.currclient = 0;
+
         #if UNITY_EDITOR 
 
                 UnityEditor.EditorApplication.isPlaying = false;

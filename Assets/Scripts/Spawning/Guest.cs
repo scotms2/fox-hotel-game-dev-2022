@@ -40,14 +40,13 @@ public class Guest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!reachedPoint1 && isMoving)
+        if(!reachedPoint1 && isMoving)
         {
             idle = false;
             animator.Play("Base Layer.Walk");
             moveGuest();
         }
-        else
-        {
+        else{
             animator.Play("Base Layer.Idle");
             idle = true;
         }
@@ -64,29 +63,27 @@ public class Guest : MonoBehaviour
         {
             transform.position -= transform.right * runSpeed * Time.deltaTime;
         }
-        else
-        {
+        else {
             GetComponent<BoxCollider2D>().enabled = true;
             isMoving = false;
             reachedPoint1 = true;
-            if (partOneDialogue != null)
-                partOneDialogue.SetActive(true);
-        }
+            partOneDialogue.SetActive(true);
+        }    
     }
 
     // void OnTriggerEnter2D (Collider2D other) {
-
-
+       
+        
     //         Debug.Log("Hit Guest Point 1");
     //         isMoving = false;
     //         reachedPoint1 = true;
     //         partOneDialogue.SetActive(true);
-
+        
     // }
 
     void OnMouseUp()
     {
         Debug.Log("sceneName to load: " + scenename);
-        SceneManager.LoadScene(scenename);
+        SceneManager.LoadScene(scenename);    
     }
-}
+}   
