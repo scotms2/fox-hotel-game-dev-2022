@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueUI : MonoBehaviour
 {
+    public static DialogueUI Instance;
     //[SerializeField] private GameObject dialogueBox;
     [SerializeField] private TextMeshProUGUI textLabel;
     [SerializeField] private DialogueObject IntroDialogue;
@@ -12,7 +13,12 @@ public class DialogueUI : MonoBehaviour
     private TypewriterEffect typewriterEffect;
 
     public bool dialogueBoxClosed;
-    
+
+    public void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start() {
         typewriterEffect = GetComponent<TypewriterEffect>();
         CloseDialogueBox();

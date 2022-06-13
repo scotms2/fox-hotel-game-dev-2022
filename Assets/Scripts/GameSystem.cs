@@ -61,7 +61,11 @@ public class GameSystem : MonoBehaviour
         while (time > 0)
         {
             yield return new WaitForSeconds(1);
-            time--;
+            if (SceneManager.GetActiveScene().name != "NewMiniGame")
+                time--;
+            else if(DialogueUI.Instance.dialogueBoxClosed)
+                time--;
+
             Txt_Time.text = "Time:" + time;
             if (Panel_Left.transform.childCount == 0)
             {
