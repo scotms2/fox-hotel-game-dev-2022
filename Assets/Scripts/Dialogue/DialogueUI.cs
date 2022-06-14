@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 
@@ -13,7 +14,8 @@ public class DialogueUI : MonoBehaviour
     private TypewriterEffect typewriterEffect;
 
     public bool dialogueBoxClosed;
-
+    public string Scenename;
+    public bool IsNextScene;
     public void Awake()
     {
         Instance = this;
@@ -39,12 +41,14 @@ public class DialogueUI : MonoBehaviour
             yield return typewriterEffect.Run(dialogue, textLabel);
             yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
         }
-
+        if (IsNextScene)
+            SceneManager.LoadScene(Scenename);
         CloseDialogueBox();
     }
 
     private void CloseDialogueBox()
     {
+        
         gameObject.SetActive(false);
         dialogueBoxClosed = true;
         textLabel.text = string.Empty;

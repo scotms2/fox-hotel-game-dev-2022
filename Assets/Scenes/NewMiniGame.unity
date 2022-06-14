@@ -2037,7 +2037,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7f999760e154be74890bb2c24d061a03, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d9d96726a5e44e44da51e316d310a6b9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2146,6 +2146,8 @@ MonoBehaviour:
   textLabel: {fileID: 6983256427212272342}
   IntroDialogue: {fileID: 11400000, guid: d36131a6ce7872d4f80d793a09a5df39, type: 2}
   dialogueBoxClosed: 0
+  Scenename: 
+  IsNextScene: 0
 --- !u!114 &6983256427143208171
 MonoBehaviour:
   m_ObjectHideFlags: 0
