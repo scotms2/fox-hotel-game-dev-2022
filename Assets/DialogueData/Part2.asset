@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff81ec659da72646bad6c90e3ab7823, type: 3}
+  m_Name: Part2
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "After completing the minigame the guest \nwill leave reception and enter the
+    hotel"
+  - Completing minigames will reward you with coins, you can later use coins to unlock
+    and upgrade the Fox Den Hotel.

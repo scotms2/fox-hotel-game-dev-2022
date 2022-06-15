@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class Spawner : MonoBehaviour
 {
@@ -12,46 +10,61 @@ public class Spawner : MonoBehaviour
 
     public List<Transform> guestSpawnPositions = new List<Transform>();
 
-    public float timeBetweenSpawns;
+    public float timeBetweenSpawns = 5;
 
     private List<GameObject> guestList = new List<GameObject>();
-    public Gold Gold;
 
-    public GameObject guestGame;
+    //private bool spawnOnce;
+    //public GameObject guestGame;
+    //public Gold Gold;
 
     // Start is called before the first frame update
     void Start()
     {
-        //  StartCoroutine(SpawnRoutine());
-        
+        //spawnOnce = true;
         SpawnGuest();
     }
 
-    public void SpawnGuest()
-    {
-        //GameObject obj = GameObject.FindGameObjectWithTag("Player");
-        //if (obj != null)
-            //Destroy(obj);
+    // void Update()
+    // {
+    //     if(gameObject.activeSelf)
+    //     {
+    //         Vector3 randomPosition = guestSpawnPositions[Random.Range(0, guestSpawnPositions.Count)].position;
+    //         GameObject guest = Instantiate(guestPrefab, randomPosition, guestPrefab.transform.rotation);
+    //         guestList.Add(guest);
 
+    //         //StartCoroutine(SpawnRoutine());
+
+    //         guestGame = guest;
+    //         guest.GetComponent<Guest>().SetSpawner(this);
+    //     }
+    // }
+
+
+    private void SpawnGuest() {
+        if(gameObject.activeSelf)
+        {
             Vector3 randomPosition = guestSpawnPositions[Random.Range(0, guestSpawnPositions.Count)].position;
-        //if (!Gold.IsDisPlayer)
-        //{
+
             GameObject guest = Instantiate(guestPrefab, randomPosition, guestPrefab.transform.rotation);
+
             guestList.Add(guest);
 
-
-            guestGame = guest;
+            //guestGame = guest;
             guest.GetComponent<Guest>().SetSpawner(this);
-        //}
+        }
     }
 
     //private IEnumerator SpawnRoutine()
     //{
-    //    while(canSpawn)
-    //    {
-    //        SpawnGuest();
-    //        yield return new WaitForSeconds(timeBetweenSpawns);
-    //    }
+        // if(canSpawn)
+        // {
+            //while(canSpawn)
+            //{
+                //SpawnGuest();
+                //yield return new WaitForSeconds(timeBetweenSpawns);
+            //}
+        // }
     //}
 
     // public void RemoveGuestsFromList(GameObject guest)
@@ -68,6 +81,4 @@ public class Spawner : MonoBehaviour
 
     //     guestList.Clear();
     // }
-
-
 }

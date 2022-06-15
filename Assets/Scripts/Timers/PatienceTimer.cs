@@ -1,8 +1,8 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PatienceTimer : MonoBehaviour
 {
@@ -10,41 +10,38 @@ public class PatienceTimer : MonoBehaviour
     public bool timerIsRunning = false;
     public Gold gold;
     public Animator animator;
-    public string scenename;
     private bool temp = true;
-
-
     public GameObject timerPrefab;
-    void OnMouseUp()
-    {
-        if (animator.gameObject.GetComponent<Animator>().enabled == false)
-            //GameObject.Find("DayTime").GetComponent<DayTimer>().LoadGame();
-            SceneManager.LoadScene(scenename);
-    }
-
+    private Guest guest;
+    public DialogueUI dialogueUI;
 
     void Start()
     {
         timerIsRunning = true;
-        
+        guest = GetComponent<Guest>();
+        animator.enabled = false;
     }
 
     void Update() 
     {
-        if(animator.gameObject.GetComponent<Animator>().enabled == false)
+        if(guest.idle)
         {
             timerStart();
         }    
+        if(dialogueUI.dialogueBoxClosed)
+        {
+            animator.enabled = true;
+        }
     }
 
-    public void timerStart()
+    void timerStart()
     {
         if (temp == true)
         {
             send();
             temp = false;
         }
-        if (timerIsRunning)
+        if(timerIsRunning)
         {
             if(timeRemaining > 0)
             {
@@ -55,10 +52,11 @@ public class PatienceTimer : MonoBehaviour
             {
                 timeRemaining = 0;
                 timerIsRunning = false;
-                Destroy(gameObject);
+                //Destroy(gameObject);
             }
         }
     }
+
     public void send()
     {
         timerPrefab  = Instantiate(timerPrefab, new Vector3(0.056f,0.021f,0.174f), timerPrefab.transform.rotation);

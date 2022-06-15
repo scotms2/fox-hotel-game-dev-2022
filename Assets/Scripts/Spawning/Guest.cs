@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Guest : MonoBehaviour
 {
@@ -9,27 +10,46 @@ public class Guest : MonoBehaviour
     public float runSpeed;
 
     public GameObject runPoint;
+    //public GameObject runPoint2;
 
+    //private double MinDist = 0.05;
+
+    public bool isMoving;
+    public bool idle;
+    private bool reachedPoint1;
+    private Animator animator;
+
+    public GameObject partOneDialogue;
+    public AudioSource guestarrivingAudioSource;
+    public AudioSource guestWaitingAudioSource;
+    public string scenename;
     private double MinDist = 0.05;
 
-    public bool isMoving = true;
-
-    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        runPoint = GameObject.FindWithTag("Finish");
+        guestarrivingAudioSource = GameObject.FindWithTag("GuestArrivingAudioSource").GetComponent<AudioSource>();
+        guestWaitingAudioSource = GameObject.FindWithTag("GuestWaitingAudioSource").GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
+        isMoving = true;
+        reachedPoint1 = false;
+        idle = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveGuest();
-
-        if(isMoving == false)
+        if (!reachedPoint1 && isMoving)
         {
-            animator.gameObject.GetComponent<Animator>().enabled = false;
+            idle = false;
+            animator.Play("Base Layer.Walk");
+            moveGuest();
+        }
+        else
+        {
+            animator.Play("Base Layer.Idle");
+            idle = true;
         }
     }
 
@@ -44,9 +64,29 @@ public class Guest : MonoBehaviour
         {
             transform.position -= transform.right * runSpeed * Time.deltaTime;
         }
-        else {
+        else
+        {
             GetComponent<BoxCollider2D>().enabled = true;
             isMoving = false;
+            reachedPoint1 = true;
+            if (partOneDialogue != null)
+                partOneDialogue.SetActive(true);
         }
+    }
+
+    // void OnTriggerEnter2D (Collider2D other) {
+
+
+    //         Debug.Log("Hit Guest Point 1");
+    //         isMoving = false;
+    //         reachedPoint1 = true;
+    //         partOneDialogue.SetActive(true);
+
+    // }
+
+    void OnMouseUp()
+    {
+        Debug.Log("sceneName to load: " + scenename);
+        SceneManager.LoadScene(scenename);
     }
 }
