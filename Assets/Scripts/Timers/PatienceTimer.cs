@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PatienceTimer : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PatienceTimer : MonoBehaviour
     public Animator animator;
     public string scenename;
     private bool temp = true;
+
 
     public GameObject timerPrefab;
     void OnMouseUp()
