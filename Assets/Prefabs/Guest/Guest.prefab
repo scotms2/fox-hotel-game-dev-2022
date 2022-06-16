@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &802484479853177756
+--- !u!1 &9134041188811701858
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1247115079105985329}
-  - component: {fileID: 48095023801078386}
-  - component: {fileID: 3883508073639216545}
-  - component: {fileID: 8308401613245795626}
-  - component: {fileID: 8491545148647514180}
-  - component: {fileID: 6338923772982255190}
-  - component: {fileID: 237743081465312307}
-  - component: {fileID: 237743081465312308}
-  m_Layer: 6
+  - component: {fileID: 9134041188811701862}
+  - component: {fileID: 9134041188811701857}
+  - component: {fileID: 9134041188811701856}
+  - component: {fileID: 9134041188811701859}
+  - component: {fileID: 7103358653944351797}
+  - component: {fileID: -7169690064392788023}
+  m_Layer: 0
   m_Name: Guest
-  m_TagString: Guest
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1247115079105985329
+  m_IsActive: 1
+--- !u!4 &9134041188811701862
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802484479853177756}
+  m_GameObject: {fileID: 9134041188811701858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.385, y: -0.053, z: 0.0502}
+  m_LocalPosition: {x: 0.0864, y: -0.0488, z: 0.0452}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &48095023801078386
+--- !u!95 &9134041188811701857
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802484479853177756}
+  m_GameObject: {fileID: 9134041188811701858}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0331de2585ea439488a9c206c2508432, type: 2}
@@ -58,13 +56,13 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!212 &3883508073639216545
+--- !u!212 &9134041188811701856
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802484479853177756}
+  m_GameObject: {fileID: 9134041188811701858}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -110,84 +108,66 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8308401613245795626
+--- !u!61 &9134041188811701859
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9134041188811701858}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.595, y: 5.9905}
+  m_EdgeRadius: 0
+--- !u!114 &7103358653944351797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802484479853177756}
+  m_GameObject: {fileID: 9134041188811701858}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 774bc05dc99421545924bb7c11198c60, type: 3}
+  m_Script: {fileID: 11500000, guid: 05b6f7ff158f6e8459bc9a22390ff092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 0.05
-  runPoint: {fileID: 8819009382951371969, guid: 31bc2ce117bb6a24089c93d508c55e7f, type: 3}
-  isMoving: 1
+  runSpeed: 0.04
+  runPoint: {fileID: 5656667756233848137, guid: c1be83399cc2e3f41a2584b13a04d69e, type: 3}
+  isMoving: 0
+  reachedPoint1: 0
   idle: 0
-  partOneDialogue: {fileID: 5379607763662182939, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
-  guestarrivingAudioSource: {fileID: 575566955164165002, guid: 4642a16bbac30504ab546b16c7e540e6, type: 3}
-  guestWaitingAudioSource: {fileID: 6194044045297496379, guid: aaf33d79f52d9fe4a8f682b1e50897db, type: 3}
-  scenename: NewMiniGame
---- !u!114 &8491545148647514180
+  guestarrivingAudioSource: {fileID: 933520269504554703, guid: 94c1dda54e763e34b8ddae9fdf0215b1, type: 3}
+  guestWaitingAudioSource: {fileID: 995405085544873819, guid: 797ee30fd758d3544976d8bc23bc3293, type: 3}
+--- !u!114 &-7169690064392788023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802484479853177756}
+  m_GameObject: {fileID: 9134041188811701858}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b03f2b5a5ed526448921cbba462cb240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 15
+  timeRemaining: 0
   timerIsRunning: 0
   gold: {fileID: 11400000, guid: 6f6be7221271c55498d056d422f90f08, type: 2}
-  animator: {fileID: 48095023801078386}
-  timerPrefab: {fileID: 0}
+  animator: {fileID: 9134041188811701857}
+  timerPrefab: {fileID: 8377939360790775528, guid: 7d27686bbfb30f84e85290021b977631, type: 3}
   dialogueUI: {fileID: 0}
---- !u!114 &6338923772982255190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802484479853177756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb25f32d56836d249ab88e7dc78f4bb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  miniGameScene: NewMiniGame
-  mainDemoScene: Tutorial
---- !u!54 &237743081465312307
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802484479853177756}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &237743081465312308
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 802484479853177756}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.595, y: 5.9905, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}

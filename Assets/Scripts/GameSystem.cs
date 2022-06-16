@@ -35,6 +35,7 @@ public class GameSystem : MonoBehaviour
     public AudioSource gameLevelCompletedAudioSource;
     public AudioSource explosionPrizeAudioSource;
     public AudioSource BagplacedAudioSource;
+    public DialogueUI dialogueUI;
 
     private void Awake()
     {
@@ -51,8 +52,15 @@ public class GameSystem : MonoBehaviour
         {
             explosionPrizeAudioSource.Play();
             //SceneManager.UnloadSceneAsync("NewMiniGame");
-            SceneManager.LoadScene("Tutorial");
+
+            StartCoroutine(LoadScene());
         });
+    }
+
+    IEnumerator LoadScene() 
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Tutorial-1");
     }
 
     private IEnumerator ChangeTime()
@@ -60,7 +68,11 @@ public class GameSystem : MonoBehaviour
         while (time > 0)
         {
             yield return new WaitForSeconds(1);
-            time--;
+            if (SceneManager.GetActiveScene().name != "NewMiniGame")
+                time--;
+            else if(DialogueUI.Instance.dialogueBoxClosed)
+                time--;
+
             Txt_Time.text = "Time:" + time;
             if (Panel_Left.transform.childCount == 0)
             {
@@ -75,14 +87,12 @@ public class GameSystem : MonoBehaviour
                     gameLevelCompletedAudioSource.Play();
                     StartCoroutine(WaitLoadScene(0));
 
-                    GameOver(1);
                     break;
                 }
             }
         }
         if (time<=0)
         {
-            GameOver(0);
             StartCoroutine(WaitLoadScene(1));
 
         }
@@ -92,7 +102,12 @@ public class GameSystem : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         if (i == 0)
-            gold.score += 50;
+        {
+            gold.score += 100;
+            GameOver(1);
+        }
+        else
+            GameOver(0);
         gold.IsDisPlayer = true;
     }
 
@@ -102,7 +117,7 @@ public class GameSystem : MonoBehaviour
         Obj_GameOver.SetActive(true);
         if (isSuccess==1)
         {
-            Txt_GameOver.text = $"Minigame compkete!Your earned 100 coins!";
+            Txt_GameOver.text = $"Minigame complete!You earned 100 coins!";
         }
         else
         {

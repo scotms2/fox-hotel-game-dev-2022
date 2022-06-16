@@ -15,8 +15,8 @@ public class Spawner : MonoBehaviour
     private List<GameObject> guestList = new List<GameObject>();
 
     //private bool spawnOnce;
-    public GameObject guestGame;
-    public Gold Gold;
+    //public GameObject guestGame;
+    //public Gold Gold;
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +50,7 @@ public class Spawner : MonoBehaviour
 
             guestList.Add(guest);
 
-            guestGame = guest;
+            //guestGame = guest;
             guest.GetComponent<Guest>().SetSpawner(this);
         }
     }

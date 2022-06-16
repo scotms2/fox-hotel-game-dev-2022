@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Guest : MonoBehaviour
 {
+    public AudioClip[] clip;
+    public AudioSource Music;
+
     private Spawner guestSpawner;
 
     public float runSpeed;
@@ -24,11 +27,13 @@ public class Guest : MonoBehaviour
     public AudioSource guestWaitingAudioSource;
     public string scenename;
     private double MinDist = 0.05;
-
+    private bool[] MusicPlay;
+    [SerializeField] private float wait_time = 10f;
 
     // Start is called before the first frame update
     void Start()
     {
+        MusicPlay = new bool[4];
         guestarrivingAudioSource = GameObject.FindWithTag("GuestArrivingAudioSource").GetComponent<AudioSource>();
         guestWaitingAudioSource = GameObject.FindWithTag("GuestWaitingAudioSource").GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
@@ -40,15 +45,30 @@ public class Guest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!reachedPoint1 && isMoving)
+        if (!reachedPoint1 && isMoving)
         {
             idle = false;
             animator.Play("Base Layer.Walk");
             moveGuest();
         }
-        else{
+        else
+        {
+            if (!MusicPlay[0])
+            {
+                MusicPlay[0] = true;
+                Music.clip = clip[0];
+                Music.Play();
+            }
             animator.Play("Base Layer.Idle");
             idle = true;
+            wait_time -= Time.deltaTime;
+            if (wait_time <= 0 && !MusicPlay[1])
+            {
+                MusicPlay[1] = true;
+                Music.clip = clip[1];
+                Music.Play();
+
+            }
         }
     }
 
@@ -63,28 +83,29 @@ public class Guest : MonoBehaviour
         {
             transform.position -= transform.right * runSpeed * Time.deltaTime;
         }
-        else {
+        else
+        {
             GetComponent<BoxCollider2D>().enabled = true;
             isMoving = false;
             reachedPoint1 = true;
-            partOneDialogue.SetActive(true);
-        }    
+            if (partOneDialogue != null)
+                partOneDialogue.SetActive(true);
+        }
     }
 
     // void OnTriggerEnter2D (Collider2D other) {
-       
-        
+
+
     //         Debug.Log("Hit Guest Point 1");
     //         isMoving = false;
     //         reachedPoint1 = true;
     //         partOneDialogue.SetActive(true);
-        
+
     // }
 
     void OnMouseUp()
     {
-        
         Debug.Log("sceneName to load: " + scenename);
-        SceneManager.LoadScene(scenename);    
+        SceneManager.LoadScene(scenename);
     }
-}   
+}

@@ -12,8 +12,7 @@ public class PatienceTimer : MonoBehaviour
     private bool temp = true;
     public GameObject timerPrefab;
     private Guest guest;
-    public DialogueUI dialogueUI;    
-  
+    public DialogueUI dialogueUI;
 
     void Start()
     {
@@ -46,7 +45,7 @@ public class PatienceTimer : MonoBehaviour
             if(timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
-                // Debug.Log("Patience Timer:" + timeRemaining);
+                Debug.Log("Patience Timer:" + timeRemaining);
             }
             else
             {
