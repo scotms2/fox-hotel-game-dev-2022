@@ -24,7 +24,7 @@ public class PatienceTimer : MonoBehaviour
 
     void Update() 
     {
-        if(guest.idle)
+        if(guest.idle && guest.reachedPoint1)
         {
             timerStart();
         }    

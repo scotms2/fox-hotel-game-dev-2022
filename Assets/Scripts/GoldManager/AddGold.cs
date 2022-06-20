@@ -35,7 +35,7 @@ public class AddGold : MonoBehaviour
 
     public void ExitGame()
     {
-        //Gold.score = 0;
+        Gold.score = 0;
         Gold.m_Time = 40;
         Gold.IsDisPlayer = false;
         Gold.currclient = 0;

@@ -35,7 +35,6 @@ public class GameSystem : MonoBehaviour
     public AudioSource gameLevelCompletedAudioSource;
     public AudioSource explosionPrizeAudioSource;
     public AudioSource BagplacedAudioSource;
-    public DialogueUI dialogueUI;
 
     private void Awake()
     {

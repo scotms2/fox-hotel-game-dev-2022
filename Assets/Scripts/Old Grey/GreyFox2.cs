@@ -20,10 +20,11 @@ public class GreyFox2 : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         runOnce = false;
-        if (gold.currclient >= 4)
+        if(GameObject.Find("GameSettings").GetComponent<GameSettings>().firstTime)
         {
-            showBigDialogueBox();
-            transform.position = GreyPlace.position;
+            smallDialogueBox.SetActive(true);
+        } else {
+            runOnce = true;
         }
     }
 
@@ -32,17 +33,20 @@ public class GreyFox2 : MonoBehaviour
     {
         animator.Play("Base Layer.Idle");
 
+        if (smallDialogueBox.activeSelf == false && gold.currclient<4 && runOnce == false)
+        {
+            showBigDialogueBox();
+            //transform.position = GreyPlace.position;
+        }
+
     }
 
     public void showBigDialogueBox()
     {
-        if (smallDialogueBox.activeSelf == false&&gold.currclient<4)
-        {
-            bigDialogueBox.SetActive(true);
-            runOnce = true;
-            gameObject.SetActive(false);
-            placeGreyInOffice();
-        }
+        bigDialogueBox.SetActive(true);
+        runOnce = true;
+        gameObject.SetActive(false);
+        placeGreyInOffice();
     }
 
     public void placeGreyInOffice()
@@ -50,10 +54,5 @@ public class GreyFox2 : MonoBehaviour
         if (gold.currclient < 4)
             gameObject.transform.position = roomPos;
         gameObject.SetActive(true);
-    }
-    void OnMouseUp()
-    {
-        if (gold.currclient >= 4)
-            dialogueUI02.SetActive(true);
     }
 }

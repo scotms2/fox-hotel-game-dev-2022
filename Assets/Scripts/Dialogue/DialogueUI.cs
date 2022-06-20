@@ -16,12 +16,16 @@ public class DialogueUI : MonoBehaviour
     public bool dialogueBoxClosed;
     public string Scenename;
     public bool IsNextScene;
+    public Guest guest;
+    private int count;
+
     public void Awake()
     {
         Instance = this;
     }
 
     private void Start() {
+        count = 0;
         typewriterEffect = GetComponent<TypewriterEffect>();
         CloseDialogueBox();
         ShowDialogue(IntroDialogue);
@@ -48,9 +52,15 @@ public class DialogueUI : MonoBehaviour
 
     private void CloseDialogueBox()
     {
-        
+        count++;
         gameObject.SetActive(false);
         dialogueBoxClosed = true;
         textLabel.text = string.Empty;
+
+        if(count == 2 && guest != null && !guest.reachedPoint1 && !guest.isMoving)
+        {
+            guest.isMoving = true;
+            GameObject.Find("GameSettings").GetComponent<GameSettings>().firstTime = false;
+        }
     }
 }

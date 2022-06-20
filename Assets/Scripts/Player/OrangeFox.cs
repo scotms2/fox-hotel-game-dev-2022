@@ -116,6 +116,7 @@ public class OrangeFox : MonoBehaviour
             {
                 guestPath.SetActive(true);
                 guest.gameObject.SetActive(true);
+                guest.isMoving = true;
                 firstGuestCheck = true;
             }
         }

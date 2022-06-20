@@ -16,10 +16,11 @@ public class Guest : MonoBehaviour
 
     public bool isMoving;
     public bool idle;
-    private bool reachedPoint1;
+    public bool reachedPoint1;
     private Animator animator;
 
     public GameObject partOneDialogue;
+    public AudioClip menu;
     public AudioSource guestarrivingAudioSource;
     public AudioSource guestWaitingAudioSource;
     public string scenename;
@@ -32,14 +33,22 @@ public class Guest : MonoBehaviour
         guestarrivingAudioSource = GameObject.FindWithTag("GuestArrivingAudioSource").GetComponent<AudioSource>();
         guestWaitingAudioSource = GameObject.FindWithTag("GuestWaitingAudioSource").GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
-        isMoving = true;
         reachedPoint1 = false;
         idle = false;
+        if(!GameObject.Find("GameSettings").GetComponent<GameSettings>().firstTime)
+        {
+            isMoving = true;
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(reachedPoint1)
+        {
+            guestarrivingAudioSource.Play();
+        }
         if (!reachedPoint1 && isMoving)
         {
             idle = false;
@@ -48,6 +57,8 @@ public class Guest : MonoBehaviour
         }
         else
         {
+            guestWaitingAudioSource.loop = true;
+            guestWaitingAudioSource.Play();
             animator.Play("Base Layer.Idle");
             idle = true;
         }

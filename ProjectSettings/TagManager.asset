@@ -18,15 +18,18 @@ TagManager:
   - GreyFox
   - GuestPoint1
   - Guest
-
+  - GuestPoint2
+  - GuestWaitingAudioSource
+  - StartAudioSource
+  - GuestArrivingAudioSource
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Fox
+  - 
   - Water
   - UI
-  - AnimalAnimator
+  - TextBox
   - 
   - 
   - 
@@ -55,13 +58,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 385308123
-    locked: 0
-  - name: Destinations
-    uniqueID: 4200341533
-    locked: 0
-  - name: Fox
-    uniqueID: 3214170157
     locked: 0

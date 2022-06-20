@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     public GreyFox2 GreyFox;
     public GameObject Duihua;
     public GameObject[] m_Camera;
+
+    public GameObject greyPlace;
+    public GameObject dialogueBox;
+
     private void Awake()
     {
         if (IsLevel2)
@@ -32,7 +36,8 @@ public class GameManager : MonoBehaviour
             {
                 m_Camera[0].SetActive(false);
                 m_Camera[1].SetActive(true);
-
+                greyPlace.SetActive(true);
+                dialogueBox.SetActive(true);
                 gold.currclient = 4;
             }
             else
@@ -57,8 +62,13 @@ public class GameManager : MonoBehaviour
             {
                 startAudioSource.Play();
                 Panel_Start.SetActive(false);
+                bgAudioSource.loop = true;
                 bgAudioSource.Play();
             });
+        }
+        else {
+            bgAudioSource.loop = true;
+            bgAudioSource.Play();
         }
     }
 

@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class OnStartScript : MonoBehaviour
 {
+    public GameObject dialogueBox;
+
     // Start is called before the first frame update
     void Start()
     {
         GameObject gameSettings = GameObject.Find("GameSettings");
         if(gameSettings != null)
         {
-            gameSettings.GetComponent<GameSettings>().firstTime = false;
+            if(!gameSettings.GetComponent<GameSettings>().firstTime)
+            {
+                dialogueBox.SetActive(false);
+            }
+            else {
+                dialogueBox.SetActive(true);
+            }
         }
     }
 
