@@ -15,28 +15,12 @@ public class CameraScript : MonoBehaviour
 
     private bool ZoomOut;
 
-    //public TextMeshProUGUI txt;
-
     public Vector3 currentRoomPos;
 
     // Update is called once per frame
     void Update()
     {
-        float ScrollWheel = Input.GetAxis("Mouse ScrollWheel");
-
-        if (ScrollWheel < 0)
-        {
-            Camera.main.orthographic = true;
-            ZoomOut = true;
-        }
-        else if (ScrollWheel > 0)
-        {
-            Camera.main.orthographic = false;
-            currentRoomPos.z = Camera.main.transform.position.z;
-            Camera.main.transform.position = currentRoomPos;
-            ZoomOut = false;
-        }
-
+        //For zooming out (Pinch and Pull)
         if(Input.touchCount == 2)
         {
             Touch touchZero = Input.GetTouch(0);
@@ -50,33 +34,23 @@ public class CameraScript : MonoBehaviour
 
             float difference = currentMagnitude - prevMagnitude;
 
-            //txt.text = "Difference Value: " + difference.ToString();
-
             if (difference < 0)
             {
                 Camera.main.orthographic = true;
+                Camera.main.transform.position = camOutPos;
                 ZoomOut = true;
-            }
-            else if (difference > 0)
-            {
-                Camera.main.orthographic = false;
-                ZoomOut = false;
             }
         }
 
-        if(Camera.main.orthographic)
-        {
-            if(Input.GetMouseButtonDown(0))
+        //For Zooming in (tapping)
+        if(Input.touchCount == 1){
+            if(ZoomOut)
             {
-                touchStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Camera.main.orthographic = false;
+                currentRoomPos.z = Camera.main.transform.position.z;
+                Camera.main.transform.position = currentRoomPos;
+                ZoomOut = false;
             }
-    
-            if(Input.GetMouseButton(0))
-            {
-                Vector3 pos = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Camera.main.transform.position += pos;
-            }
-            
         }
     }
 }
