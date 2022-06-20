@@ -35,10 +35,14 @@ public class Guest : MonoBehaviour
         animator = GetComponent<Animator>();
         reachedPoint1 = false;
         idle = false;
-        if(!GameObject.Find("GameSettings").GetComponent<GameSettings>().firstTime)
+        GameObject gameSettings = GameObject.Find("GameSettings");
+        if(gameSettings != null)
         {
-            isMoving = true;
+            if(!gameSettings.GetComponent<GameSettings>().firstTime)
+            {
+                isMoving = true;
 
+            }
         }
     }
 
