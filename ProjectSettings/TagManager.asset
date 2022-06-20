@@ -8,6 +8,7 @@ TagManager:
   - room1
   - room2
   - DayTime
+  - WaitingTimer
   - OrangeFox
   - Point1
   - Point2
@@ -17,6 +18,7 @@ TagManager:
   - GreyFox
   - GuestPoint1
   - Guest
+
   layers:
   - Default
   - TransparentFX
