@@ -38,6 +38,7 @@ public class CabinetComponent : MonoBehaviour
                 if (item==grid.name)
                 {
                     grid.GetComponent<BoxCompletedEvent>().isEnter = true;
+                    grid.GetComponent<BoxCompletedEvent>().IsNot = true;
                     grid.GetComponent<BoxCollider2D>().isTrigger = false;
                     
                 }

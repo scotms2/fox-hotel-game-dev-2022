@@ -44,6 +44,7 @@ public class BoxComponent : MonoBehaviour, IDragHandler, IPointerClickHandler, I
             this.transform.SetParent(GameSystem.instance.Panel_Left.transform);
             LayoutRebuilder.ForceRebuildLayoutImmediate(GameSystem.instance.Panel_Left.GetComponent<RectTransform>());
             isDown = false;
+            isEnter = 0;
         }
         else
         {
@@ -59,6 +60,7 @@ public class BoxComponent : MonoBehaviour, IDragHandler, IPointerClickHandler, I
             if (isEnter< Number)
             {
                 this.transform.Rotate(0, 0, this.transform.rotation.z - 90);
+                isEnter = 0;
             }
         }
     }

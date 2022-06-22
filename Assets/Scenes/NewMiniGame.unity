@@ -2375,7 +2375,7 @@ MonoBehaviour:
   IsNextScene: 0
   guest: {fileID: 0}
   GreyFox2: {fileID: 0}
-  gold: {fileID: 0}
+  gold: {fileID: 11400000, guid: 6f6be7221271c55498d056d422f90f08, type: 2}
 --- !u!114 &6983256427143208171
 MonoBehaviour:
   m_ObjectHideFlags: 0

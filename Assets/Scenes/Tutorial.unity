@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.19551736, g: 0.16971529, b: 0.1243458, a: 1}
+  m_IndirectSpecularColor: {r: 0.19551736, g: 0.16971532, b: 0.12434585, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -429,6 +429,11 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &36682289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5379607763662182939, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
+  m_PrefabInstance: {fileID: 5379607764100182347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &93740944 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5279885412646250941, guid: 834d3d7f1eed8fe4cbb48ad1b4f73e7d, type: 3}
@@ -636,11 +641,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &164620678 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5379607763662182939, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
-  m_PrefabInstance: {fileID: 5379607764100182347}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &191107182
 GameObject:
   m_ObjectHideFlags: 0
@@ -6237,7 +6237,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5379607763662182936, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
   m_PrefabInstance: {fileID: 5379607764100182347}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164620678}
+  m_GameObject: {fileID: 36682289}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90bbb9a42feb7b64099c17b6e72fde1b, type: 3}
@@ -7836,19 +7836,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_SizeDelta.x
@@ -7900,11 +7900,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.1116943
+      value: -639.9872
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -720.0027
+      value: -359.99963
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8484,7 +8484,7 @@ MonoBehaviour:
   isMoving: 0
   idle: 0
   reachedPoint1: 0
-  partOneDialogue: {fileID: 164620678}
+  partOneDialogue: {fileID: 36682289}
   patienceTimer: {fileID: 473530359}
   menu: {fileID: 0}
   guestarrivingAudioSource: {fileID: 1577542620}
