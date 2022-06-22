@@ -636,6 +636,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &164620678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5379607763662182939, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
+  m_PrefabInstance: {fileID: 5379607764100182347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &191107182
 GameObject:
   m_ObjectHideFlags: 0
@@ -6232,7 +6237,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5379607763662182936, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
   m_PrefabInstance: {fileID: 5379607764100182347}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 164620678}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90bbb9a42feb7b64099c17b6e72fde1b, type: 3}
@@ -7831,19 +7836,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_SizeDelta.x
@@ -7895,11 +7900,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -639.9872
+      value: 0.1116943
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -359.99963
+      value: -720.0027
       objectReference: {fileID: 0}
     - target: {fileID: 5379607763662182938, guid: 48279df7491333f49a86c3f6697cc542, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8479,7 +8484,8 @@ MonoBehaviour:
   isMoving: 0
   idle: 0
   reachedPoint1: 0
-  partOneDialogue: {fileID: 473530359}
+  partOneDialogue: {fileID: 164620678}
+  patienceTimer: {fileID: 473530359}
   menu: {fileID: 0}
   guestarrivingAudioSource: {fileID: 1577542620}
   guestWaitingAudioSource: {fileID: 851378303}

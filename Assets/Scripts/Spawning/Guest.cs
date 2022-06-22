@@ -20,6 +20,7 @@ public class Guest : MonoBehaviour
     private Animator animator;
 
     public GameObject partOneDialogue;
+    public GameObject patienceTimer;
     public AudioClip menu;
     public AudioSource guestarrivingAudioSource;
     public AudioSource guestWaitingAudioSource;
@@ -83,6 +84,7 @@ public class Guest : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = true;
             isMoving = false;
             reachedPoint1 = true;
+            patienceTimer.SetActive(true);
             if (partOneDialogue != null)
                 partOneDialogue.SetActive(true);
         }
