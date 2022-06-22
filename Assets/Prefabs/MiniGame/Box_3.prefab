@@ -95,6 +95,7 @@ MonoBehaviour:
   dragRangeRect: {fileID: 0}
   isEnter: 0
   lasePosition: {x: 0, y: 0, z: 0}
+  Number: 2
   isDown: 0
 --- !u!61 &5684617943007714094
 BoxCollider2D:

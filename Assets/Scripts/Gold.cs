@@ -7,5 +7,6 @@ public class Gold : ScriptableObject
     public int score;
     public float m_Time;
     public bool IsDisPlayer;
+    public bool IsDown;
     public int currclient = 0;
 }

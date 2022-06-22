@@ -34,10 +34,11 @@ public class GameManager : MonoBehaviour
             }
             if (gold.currclient >= 4)
             {
+                //GreyFox.gameObject.SetActive(false);
                 m_Camera[0].SetActive(false);
                 m_Camera[1].SetActive(true);
-                greyPlace.SetActive(true);
-                dialogueBox.SetActive(true);
+                //greyPlace.SetActive(true);
+                //dialogueBox.SetActive(true);
                 gold.currclient = 4;
             }
             else

@@ -39,6 +39,7 @@ public class PatienceTimer : MonoBehaviour
         if (temp == true)
         {
             send();
+            timerPrefab.SetActive(true);
             temp = false;
         }
         if(timerIsRunning)
@@ -59,7 +60,7 @@ public class PatienceTimer : MonoBehaviour
 
     public void send()
     {
-        timerPrefab  = Instantiate(timerPrefab, new Vector3(0.056f,0.021f,0.174f), timerPrefab.transform.rotation);
-        timerPrefab.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
+        //timerPrefab  = Instantiate(timerPrefab, new Vector3(0.056f,0.021f,0.174f), timerPrefab.transform.rotation);
+        //timerPrefab.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
     }
 }

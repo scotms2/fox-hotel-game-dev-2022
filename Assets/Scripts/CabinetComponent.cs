@@ -53,21 +53,20 @@ public class CabinetComponent : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<BoxComponent>())
-        {
-            collision.gameObject.GetComponent<BoxComponent>().isEnter = true;
-            collision.gameObject.transform.SetParent(GameSystem.instance.Panel_Box.transform);
-            GameSystem.instance.boxList.Add(collision.gameObject.GetComponent<BoxComponent>());
-        }
-
+        //if (collision.gameObject.GetComponent<BoxComponent>())
+        //{
+        //    collision.gameObject.GetComponent<BoxComponent>().isEnter += 1;
+        //    collision.gameObject.transform.SetParent(GameSystem.instance.Panel_Box.transform);
+        //    GameSystem.instance.boxList.Add(collision.gameObject.GetComponent<BoxComponent>());
+        //}
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collision.gameObject.GetComponent<BoxComponent>().isEnter = false;
-        collision.gameObject.transform.SetParent(GameSystem.instance.Panel_Left.transform);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(GameSystem.instance.Panel_Left.GetComponent<RectTransform>());
-        GameSystem.instance.boxList.Remove(collision.gameObject.GetComponent<BoxComponent>());
+        //collision.gameObject.GetComponent<BoxComponent>().isEnter -=1;
+        //collision.gameObject.transform.SetParent(GameSystem.instance.Panel_Left.transform);
+        //LayoutRebuilder.ForceRebuildLayoutImmediate(GameSystem.instance.Panel_Left.GetComponent<RectTransform>());
+        //GameSystem.instance.boxList.Remove(collision.gameObject.GetComponent<BoxComponent>());
     }
     public Vector3 GetNearestPos(Vector3 pos)
     {

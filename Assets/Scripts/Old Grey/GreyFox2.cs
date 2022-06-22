@@ -12,19 +12,32 @@ public class GreyFox2 : MonoBehaviour
     public bool runOnce;
     public Gold gold;
     public Transform GreyPlace;
-
+    private bool isDown;
     private Vector3 roomPos = new Vector3(-0.0249f, -0.347f, 0.0671f);
-
+    public Guest Guest;
     // Start is called before the first frame update
     void Start()
     {
+        isDown = gold.IsDown;
         animator = GetComponent<Animator>();
         runOnce = false;
-        if(GameObject.Find("GameSettings").GetComponent<GameSettings>().firstTime)
+        if (!isDown)
         {
-            smallDialogueBox.SetActive(true);
-        } else {
+            if (GameObject.Find("GameSettings").GetComponent<GameSettings>().firstTime)
+            {
+                smallDialogueBox.SetActive(true);
+            }
+            else
+            {
+                runOnce = true;
+            }
+        }
+        if (isDown)
+        {
+            Guest.isMoving = true;
+            transform.position = GreyPlace.position;
             runOnce = true;
+            GameObject.Find("GameSettings").GetComponent<GameSettings>().firstTime = false;
         }
     }
 
@@ -32,13 +45,12 @@ public class GreyFox2 : MonoBehaviour
     void Update()
     {
         animator.Play("Base Layer.Idle");
-
-        if (smallDialogueBox.activeSelf == false && gold.currclient<4 && runOnce == false)
-        {
-            showBigDialogueBox();
-            //transform.position = GreyPlace.position;
-        }
-
+        if (!gold.IsDown)
+            if (smallDialogueBox.activeSelf == false && gold.currclient < 4 && runOnce == false)
+            {
+                showBigDialogueBox();
+                transform.position = GreyPlace.position;
+            }
     }
 
     public void showBigDialogueBox()
@@ -47,12 +59,24 @@ public class GreyFox2 : MonoBehaviour
         runOnce = true;
         gameObject.SetActive(false);
         placeGreyInOffice();
+        gold.IsDown = true;
     }
 
     public void placeGreyInOffice()
     {
-        if (gold.currclient < 4)
-            gameObject.transform.position = roomPos;
+        gameObject.transform.position = roomPos;
         gameObject.SetActive(true);
+    }
+
+    void OnMouseUp()
+    {
+        if (gold.currclient >= 4)
+            dialogueUI02.SetActive(true);
+        Debug.Log("ÒÑ¾­µã»÷");
+    }
+
+    public void DownGreyFox()
+    {
+        isDown = true;
     }
 }

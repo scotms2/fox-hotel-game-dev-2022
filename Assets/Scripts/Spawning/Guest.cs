@@ -41,7 +41,6 @@ public class Guest : MonoBehaviour
             if(!gameSettings.GetComponent<GameSettings>().firstTime)
             {
                 isMoving = true;
-
             }
         }
     }

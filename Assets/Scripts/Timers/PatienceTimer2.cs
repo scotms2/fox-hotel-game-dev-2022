@@ -25,7 +25,7 @@ public class PatienceTimer2 : MonoBehaviour
 
     private Vector3 startPos;
 
-    void Start()
+    void OnEnable()
     {
         startPos = transform.position;
         timerIsRunning = true;

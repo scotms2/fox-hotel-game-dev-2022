@@ -18,7 +18,8 @@ public class DialogueUI : MonoBehaviour
     public bool IsNextScene;
     public Guest guest;
     private int count;
-
+    public GreyFox2 GreyFox2;
+    public Gold gold;
     public void Awake()
     {
         Instance = this;
@@ -59,6 +60,11 @@ public class DialogueUI : MonoBehaviour
 
         if(count == 2 && guest != null && !guest.reachedPoint1 && !guest.isMoving)
         {
+            if (GreyFox2 != null)
+            {
+                GreyFox2.showBigDialogueBox();
+                gold.IsDown= true;
+            }
             guest.isMoving = true;
             GameObject.Find("GameSettings").GetComponent<GameSettings>().firstTime = false;
         }

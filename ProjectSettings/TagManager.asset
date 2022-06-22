@@ -22,6 +22,7 @@ TagManager:
   - GuestWaitingAudioSource
   - StartAudioSource
   - GuestArrivingAudioSource
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Water
   - UI
   - TextBox
-  - 
+  - Room
   - 
   - 
   - 

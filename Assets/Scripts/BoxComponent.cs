@@ -5,15 +5,16 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
 public class BoxComponent : MonoBehaviour, IDragHandler, IPointerClickHandler, IEndDragHandler
 {
     public string id;
     public float z;
     public RectTransform dragRangeRect;
     RectTransform rectTrans;
-    public bool isEnter = false;
+    public int isEnter;
     public Vector3 lasePosition;
-
+    public int Number;
     public bool isDown = false;
    // public bool isChangePos = true;
     private void Awake()
@@ -38,7 +39,7 @@ public class BoxComponent : MonoBehaviour, IDragHandler, IPointerClickHandler, I
     public void OnEndDrag(PointerEventData eventData)
     {
         GameSystem.instance.BagplacedAudioSource.Play();
-        if (isEnter == false)
+        if (isEnter< Number)
         {
             this.transform.SetParent(GameSystem.instance.Panel_Left.transform);
             LayoutRebuilder.ForceRebuildLayoutImmediate(GameSystem.instance.Panel_Left.GetComponent<RectTransform>());
@@ -55,7 +56,7 @@ public class BoxComponent : MonoBehaviour, IDragHandler, IPointerClickHandler, I
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if (isEnter==false)
+            if (isEnter< Number)
             {
                 this.transform.Rotate(0, 0, this.transform.rotation.z - 90);
             }
